@@ -4,11 +4,9 @@ import './style/App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <HomeContainer/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+      <img src={logo} className="App-logo" alt="logo" />
     </div>
   );
 }
