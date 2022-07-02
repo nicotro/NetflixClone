@@ -1,0 +1,56 @@
+.notfound-background {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.notfound-message {
+    position: fixed;
+    text-align: center;
+    /* top: calc((100% - 10rem)/2);
+    left: calc((100% - 22rem)/2); */
+    width: 30vw;
+    height: 30vw;
+    top: calc((100% - 40vh)/2);
+    left: calc((100% - 30vw)/2);
+    background-color: #000000bb;
+    border-radius: 1rem;
+    padding: 1vw 2vw 4vw 2vw;
+}
+
+.h1-404 {
+    font-family: "Netflix_Bold";
+    font-weight: normal;
+    font-size: 4vw;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 0 1vw 0;
+}
+
+.h1-notfound {
+    font-size: 3vw;
+    text-align: center;
+    color: #e50914;
+}
+
+.tmp-logo {
+    width: 20vw;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .tmp-logo {
+        animation: logo-spin infinite 10s linear;
+    }
+}
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
