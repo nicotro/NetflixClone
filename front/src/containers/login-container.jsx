@@ -1,4 +1,4 @@
-import { Header } from "../components/header/header";
+import { Header } from "../components/header";
 import "./../style/login-container.css";
 
 export function LoginContainer() {

@@ -1,4 +1,4 @@
-import { Header } from "../components/header/header";
+import { Header } from "../components/header";
 import "./../style/register-container.css";
 
 export function RegisterContainer() {

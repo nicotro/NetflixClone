@@ -1,0 +1,36 @@
+.nav-header {
+    position: relative;
+    z-index: 1;
+    max-width: 1850px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 175px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.nav-header img {
+    height: 36px;
+    width: 134px;
+}
+
+.nav-header-button {
+    display: block;
+    background-color: #e50914;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    border: 0;
+    font-size: 15px;
+    border-radius: 3px;
+    padding: 8px 17px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 550px) {
+    .nav-header {
+        margin-bottom: 100px;
+    }
+}
