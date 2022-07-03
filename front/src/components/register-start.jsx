@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./../style/register-start.css";
 
 export function RegisterStart() {
@@ -16,7 +17,7 @@ export function RegisterStart() {
           maxlength="50"
           minlength="5"
         ></input>
-        <div className="register-start-button">Get Started</div>
+        <Link className="register-start-button" to="/register">Get Started</Link>
       </div>
     </div>
   );
