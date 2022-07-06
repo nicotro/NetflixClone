@@ -1,3 +1,3 @@
-export function AdminContainer() {
-  return <>Admin Container</>;
+export function UserContainer() {
+  return <>User Container</>;
 }
