@@ -7,7 +7,7 @@ export function Header() {
   return (
     <div
       className="bg-header"
-      style={{ backgroundImage: `url(${backgroundImage})`}}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="bg-fade" />
       <Navbar />
