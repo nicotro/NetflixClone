@@ -11,11 +11,11 @@ export function RegisterStart() {
         <input
           type="email"
           value=""
-          tabindex="0"
-          autocomplete="email"
+          tabIndex="0"
+          autoComplete="email"
           placeholder="Email address"
-          maxlength="50"
-          minlength="5"
+          maxLength="50"
+          minLength="5"
         ></input>
         <Link className="register-start-button" to="/register">Get Started</Link>
       </div>
