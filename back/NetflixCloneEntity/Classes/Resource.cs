@@ -35,5 +35,9 @@ namespace NetflixCloneEntity.Classes
         [StringLength(maximumLength: 100)]
         [Required]
         public string Season { get => season; set => season = value; }
+
+        public virtual List<Category> Categories { get; set; }
+        public virtual List<Image> Images { get; set; }
+        public virtual List<Video> Videos { get; set; }
     }
 }

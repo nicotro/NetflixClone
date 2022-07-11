@@ -11,8 +11,9 @@ namespace NetflixCloneEntity.Classes
     public class Resource_Category
     {
         private int id;
-        private string resourceId;
-        private string categoryId;
+        private Category category;
+        private int resourceId;
+        private int categoryId;
 
         public Resource_Category()
         {
@@ -21,11 +22,11 @@ namespace NetflixCloneEntity.Classes
         public int Id { get => id; set => id = value; }
 
         [ForeignKey("ResourceId")]
+        public int ResourceId { get => resourceId; set => resourceId = value; }
         public Resource resource { get => resource; set => resource = value; }
-        public string ResourceId { get => resourceId; set => resourceId = value; }
 
         [ForeignKey("CategoryId")]
-        public Category category { get => category; set => category = value; }
-        public string CategoryId { get => categoryId; set => categoryId = value; }
+        public int CategoryId { get => categoryId; set => categoryId = value; }
+        public Category Category { get => category; set => category = value; }
     }
 }

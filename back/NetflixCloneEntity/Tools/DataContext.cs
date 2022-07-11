@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+using NetflixCloneEntity.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,10 @@ namespace NetflixCloneEntity.Tools
 {
     public class DataContext : DbContext
     {
-        //public DbSet<Account> Accounts { get; set; }
-        //public DbSet<Customer> Customers { get; set; }
+        public DbSet<User> users { get; set; }
+        public DbSet<Category> categories { get; set; }
+        public DbSet<Resource> resources{ get; set; }
+        public DbSet<Faq> faqs{ get; set; }
         public DataContext() : base()
         {
 

@@ -12,7 +12,7 @@ namespace NetflixCloneEntity.Classes
     public class Image
     {
         private int id;
-        private int resource_id;
+        //private int resource_id;
         private int sizeType;
         private string url;
 
@@ -22,9 +22,9 @@ namespace NetflixCloneEntity.Classes
 
         public int Id { get => id; set => id = value; }
 
-        [Column("resource_id")]
-        [Required]
-        public int Resource_id { get => resource_id; set => resource_id = value; }
+        //[Column("resource_id")]
+        //[Required]
+        //public int Resource_id { get => resource_id; set => resource_id = value; }
 
         [Column("size_type")]
         [Required]

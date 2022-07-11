@@ -24,5 +24,8 @@ namespace NetflixCloneEntity.Classes
         [StringLength(maximumLength:100)]
         [Required]
         public string Name { get => name; set => name = value; }
+
+        public virtual List<Resource> Resources { get; set; }
+
     }
 }

@@ -47,9 +47,9 @@ namespace NetflixCloneEntity.Classes
         [Required]
         public string Password { get => password; set => password = value; }
 
-        [ForeignKey("roleId")]
-        public Role Role { get => role; set => role = value; }
+        [ForeignKey("role_id")]
         public int RoleId { get; set; }
+        public Role Role { get => role; set => role = value; }
         
         [Column("banned_user")]
         public bool Banned { get => banned; set => banned = value; }
