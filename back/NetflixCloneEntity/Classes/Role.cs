@@ -8,25 +8,21 @@ using System.Threading.Tasks;
 
 namespace NetflixCloneEntity.Classes
 {
-    [Table("Faq")]
-    public class Faq
+    [Table("role")]
+    public class Role
     {
         private int id;
-        private string question;
-        private string answer;
+        private string function;
 
-        public Faq()
+        public Role()
         {
         }
 
         public int Id { get => id; set => id = value; }
 
-        [Column("question")]
+        [Column("function")]
+        [StringLength(maximumLength:100)]
         [Required]
-        public string Question { get => question; set => question = value; }
-
-        [Column("answer")]
-        [Required]
-        public string Answer { get => answer; set => answer = value; }
+        public string Function { get => function; set => function = value; }
     }
 }

@@ -1,19 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NetflixCloneEntity.Classes
 {
+    [Table("resource_category")]
     public class Resource_Category
     {
         private int id;
-        private string resource_id;
-        private string category_id;
+        private string resourceId;
+        private string categoryId;
+
+        public Resource_Category()
+        {
+        }
 
         public int Id { get => id; set => id = value; }
-        public string Resource_id { get => resource_id; set => resource_id = value; }
-        public string Category_id { get => category_id; set => category_id = value; }
+
+        [ForeignKey("ResourceId")]
+        public Resource resource { get => resource; set => resource = value; }
+        public string ResourceId { get => resourceId; set => resourceId = value; }
+
+        [ForeignKey("CategoryId")]
+        public Category category { get => category; set => category = value; }
+        public string CategoryId { get => categoryId; set => categoryId = value; }
     }
 }
