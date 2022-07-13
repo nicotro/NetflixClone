@@ -1,34 +1,37 @@
-.call
-{
-    
-    color:  rgba(255, 255, 255, 0.332);
-    text-align: center;
-    
-
-    
-}
-
-.row a
-{
-    color: rgba(255, 255, 255, 0.305);
-    margin: 10px;
-    align-items: center;
+footer {
+    background-color:black;
   
-
-  
-   
-}
-il
-{
-   
-    flex-direction: row;
-    align-items: center;
-    column-count: 3;
-    
-   
-    display: flex;
-    
-    
     
 
 }
+.titre {
+    padding: 25px 100px;
+    color: gray;
+}
+
+
+   
+
+ .row 
+    {
+        
+       
+       margin: 10px;
+       display:flex;
+       
+      
+      justify-content:space-around;
+        
+        
+        
+        
+       
+    }
+
+ a
+ {
+     color:gray;
+     text-align:center
+ }
+    
+
