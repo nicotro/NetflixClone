@@ -22,8 +22,22 @@
     max-width: 815px;
 }
 
+.home-section-content{
+    background-color: blueviolet;
+    display: flex;
+}
+
+.home-section-content-item-text{
+    background-color: aqua;
+    width: 60%;
+}
+
+
 @media (max-width: 550px) {
     .home-section {
         padding: 70px 45px;
+    }
+    .home-section-content{
+        flex-direction: column;
     }
 }
