@@ -16,10 +16,8 @@ export function HomeAdSection() {
                         </div>
                         {ad.animationType === "video"
                             ?
-                            <div style={{ maxWidth: "100%" }}>
-                                <div className="home-section-col-video" style={ad.animationPos} >
-                                    <video src={`${ad.animation}`} muted autoPlay={"autoplay"} preload="auto" loop></video>
-                                </div>
+                            <div className="home-section-col-video" style={ad.animationPos} >
+                                <video src={`${ad.animation}`} muted autoPlay={"autoplay"} preload="auto" loop></video>
                             </div>
                             :
                             <div>nothing yet</div>

@@ -12,4 +12,9 @@
     cursor: pointer;
     list-style-type: none;
     margin: 8px auto;
+    position: relative;
+}
+
+.faq-list-item-button {
+    position: absolute;
 }
