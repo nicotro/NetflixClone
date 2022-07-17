@@ -8,15 +8,7 @@ export function RegisterStart() {
         Ready to watch? Enter your email to create or restart your membership.
       </h3>
       <div className="wrap">
-        <input
-          type="email"
-          value=""
-          tabIndex="0"
-          autoComplete="email"
-          placeholder="Email address"
-          maxLength="50"
-          minLength="5"
-        ></input>
+        <input type="email" defaultValue="" tabIndex="0" autoComplete="email" placeholder="Email address" maxLength="50" minLength="5"></input>
         <Link className="register-start-button" to="/register">Get Started</Link>
       </div>
     </div>

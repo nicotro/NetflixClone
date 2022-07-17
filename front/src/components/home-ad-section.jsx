@@ -11,10 +11,23 @@ export function HomeAdSection() {
                         <h2 className='home-section-text'>{ad.textBody}</h2>
                     </div>
                     <div className="home-section-col-small">
-                        <img src={`${ad.image}`} alt={ad.imageAlt} className="home-section-col-img" />
+                        <div className="home-section-col-img" >
+                            <img src={`${ad.image}`} alt={ad.imageAlt} />
+                        </div>
+                        {ad.animationType === "video"
+                            ?
+                            <div style={{ maxWidth: "100%" }}>
+                                <div className="home-section-col-video" style={ad.animationPos} >
+                                    <video src={`${ad.animation}`} muted autoPlay={"autoplay"} preload="auto" loop></video>
+                                </div>
+                            </div>
+                            :
+                            <div>nothing yet</div>
+                        }
                     </div>
                 </div>
-            ))}
-        </div>
+            ))
+            }
+        </div >
     );
 }

@@ -7,6 +7,11 @@
         "imageAlt": "Netflix content on TV",
         "animationType": "video",
         "animation": "tempdata/animations/video-tv-0819.m4v",
+        "animationPos": {
+            "top": "48%",
+            "left": "50%",
+            "width": "74%"
+        },
         "flex": "home-section-row"
     },
     {
@@ -17,6 +22,7 @@
         "imageAlt": "Downloading Stranger Things on a mobile phone",
         "animationType": "anim",
         "animation": "tempdata/animations/ad_download-icon.gif",
+        "animationPos": "",
         "flex": "home-section-row-reverse"
     },
     {
@@ -27,6 +33,11 @@
         "imageAlt": "Video playing on different devices",
         "animationType": "video",
         "animation": "tempdata/animations/video-devices.m4v",
+        "animationPos": {
+            "top": "34%",
+            "left": "49%",
+            "width": "62%"
+        },
         "flex": "home-section-row"
     },
     {
@@ -37,6 +48,7 @@
         "imageAlt": "kids Profile",
         "animationType": "none",
         "animation": "",
+        "animationPos": "",
         "flex": "home-section-row-reverse"
     }
 ]

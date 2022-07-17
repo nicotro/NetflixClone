@@ -27,15 +27,17 @@
 .home-section-col-large {
     padding: 70px 5%;
     margin: auto;
-    max-width: 1100px;
-    width: 52%;
+    max-width: 1200px;
+    width: 60%;
 }
 
 .home-section-col-small {
     padding: initial;
     margin: auto;
-    max-width: 1100px;
-    width: 48%;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+    font-size: 0;
 }
 
 .home-section-title {
@@ -45,7 +47,35 @@
 }
 
 .home-section-col-img {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.home-section-col-img img {
+    border: 0;
+    height: auto;
     max-width: 100%;
+}
+
+.home-section-col-video {
+    position: absolute;
+    z-index: 1;
+    /* get position & scale from JSON file/data animationPos property
+    width: 100%;
+    height: 100%;
+    max-height: 54%;
+    max-width: 62%;
+    top: 34%;
+    left: 49%;*/
+    transform: translate(-50%, -50%);
+}
+
+.home-section-col-video video {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    vertical-align: baseline;
 }
 
 .home-section-text {
@@ -66,7 +96,7 @@
     text-align: center;
 }
 
-
+/*---- screensize dependant settings ----*/
 @media (max-width: 950px) {
 
     .home-section-row,
@@ -74,10 +104,9 @@
         flex-direction: column;
     }
 
-    .home-section-col-small,
     .home-section-col-large {
         padding: initial;
-        width: 90%;
+        width: 75%;
     }
 
     .home-section-title {
@@ -98,7 +127,7 @@
     .home-section-col-small,
     .home-section-col-large {
         padding: initial;
-        width: 100%;
+        /* width: 100%; */
     }
 
     .home-section-text {
