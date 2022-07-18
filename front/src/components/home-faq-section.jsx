@@ -9,7 +9,9 @@ export function HomeFaqSection() {
             <h1 className='home-section-title home-section-title-faq'>Frequently Asked Questions</h1>
             <ul className='home-section-faq'>
                 {HomeFaqData.map((faq) => (
-                    <li className='faq-list-item' key={faq.id}><HomeFaqItem q={`${faq.q}`} a={`${faq.a}`} /> </li>
+                    <li className='faq-list-item' key={faq.id}>
+                        <HomeFaqItem q={`${faq.q}`} a={`${faq.a}`} />
+                    </li>
                 ))}
             </ul>
             <RegisterStart />

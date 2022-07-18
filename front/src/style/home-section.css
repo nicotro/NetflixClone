@@ -143,4 +143,9 @@
         text-align: center;
         padding-right: initial;
     }
+
+    .home-section-faq {
+        width: 100%;
+        padding: initial;
+    }
 }
