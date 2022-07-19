@@ -1,7 +1,7 @@
-import { Navbar } from "./navbar";
 import backgroundImage from "./../assets/BG_netflix_large.jpg";
-import "./../style/header.css";
+import { Navbar } from "./navbar";
 import { RegisterStart } from "./register-start";
+import "./../style/header.css";
 
 export function HomeHeader() {
   return (

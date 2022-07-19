@@ -53,15 +53,33 @@
     background: #f40612;
 }
 
+.register-start-button-arrow {
+    fill:#fff;
+    height: 1.25rem;
+    margin: 0 0 -0.2em 1rem;
+}
 
-@media (max-width: 550px) {
+
+@media (max-width: 950px) {
+    .register-start .wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .register-start h3 {
-        padding: 0 10%;
+        padding: 0 10% 2rem;
         margin: 0 auto;
         font-size: 18px;
+    }
+
+    .register-start input {
+        border-radius: 3px;
+        margin-bottom: 0.5rem;
     }
     .register-start-button {
         font-size: 16px;
         font-weight: bold;
+        border-radius: 3px;
+        margin-top: 0.5rem;
     }
 }

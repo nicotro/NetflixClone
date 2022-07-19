@@ -30,12 +30,12 @@
     right: 1em;
     top: 50%;
     width: 1em;
-    transform: translateY(-50%);
-    transition: transform .3s smooth;
+    transform: translate(-0.025em,-0.4em);
+    transition: .3s smooth;
 }
 
 .faq-list-item-question-closed {
-    transform: translateY(-50%) rotate(-45deg);
+    transform: translate(0,-50%) rotate(-45deg);
 }
 
 
