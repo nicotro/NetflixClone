@@ -1,4 +1,145 @@
-.notfound-background {
+
+.not-found{
+    background: rgba(0,0,0,.18);
+    color: #fff;
+    font-size: 0.85vw;
+    line-height: 1.2;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding-top: 68px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+.not-found-header{
+    background-color: #000;
+    background-color: rgba(0,0,0,.97);
+    height: 68px;
+    left: 0;
+    padding: 0 45px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 20;
+}
+
+.not-found-logo{
+    left: 40px;
+    position: absolute;
+    top: 22px;
+}
+
+.not-found-link{
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    color: transparent;
+    font-size: 25px;
+    overflow: hidden;
+}
+
+.not-found-content{
+    display: flex;
+    flex: 2 0;
+    flex-direction: column;
+    margin: 0 1em;
+    position: relative;
+    text-align: center;
+}
+
+.not-found-content::before{
+    background: radial-gradient(ellipse at center,rgba(0,0,0,.5) 0,rgba(0,0,0,.2) 45%,rgba(0,0,0,.1) 55%,transparent 70%);
+    bottom: -10vw;
+    content: "";
+    left: 10vw;
+    position: absolute;
+    right: 10vw;
+    top: -10vw;
+    z-index: 0;
+}
+
+.not-found-content::after{
+    background-attachment: fixed;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.not-found-content-title{
+    color: inherit;
+    margin-top: 0;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 57%);
+}
+
+.not-found-content h1 {
+    font-size: 6em;
+    font-weight: 700;
+    margin-bottom: 2vw;
+    z-index: 1;
+}
+
+.not-found-content-body{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    width: 50vw;
+    z-index: 1;
+}
+
+.not-found-content p{
+    color: inherit;
+    margin-top: 0;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 57%);
+    font-size: 2.2em;
+    font-weight: 300;
+}
+
+.not-found-content-message{
+    display: flex;
+    justify-content: center;
+}
+
+.not-found-content-message button{
+    background-color: white;
+    color: black;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+}
+
+.not-found-content-404{
+    align-items: flex-end;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.not-found-content-404 span{
+    border-left: 2px solid #e50914;
+    font-size: 2.4em;
+    font-weight: 100;
+    letter-spacing: .1em;
+    line-height: 2.2em;
+    padding: 0 1vw;
+}
+
+
+
+/* .notfound-background {
     min-height: 100vh;
     background-size: cover;
     background-position: center;
@@ -9,8 +150,6 @@
 .notfound-message {
     position: fixed;
     text-align: center;
-    /* top: calc((100% - 10rem)/2);
-    left: calc((100% - 22rem)/2); */
     width: 30vw;
     height: 30vw;
     top: calc((100% - 40vh)/2);
@@ -54,4 +193,4 @@
     to {
         transform: rotate(360deg);
     }
-}
+} */
