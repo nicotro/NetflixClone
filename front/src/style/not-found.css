@@ -1,6 +1,5 @@
-
-.not-found{
-    background: rgba(0,0,0,.18);
+.not-found {
+    background: rgba(0, 0, 0, .18);
     color: #fff;
     font-size: 0.85vw;
     line-height: 1.2;
@@ -16,9 +15,9 @@
     z-index: 1000;
 }
 
-.not-found-header{
+.not-found-header {
     background-color: #000;
-    background-color: rgba(0,0,0,.97);
+    background-color: rgba(0, 0, 0, .97);
     height: 68px;
     left: 0;
     padding: 0 45px;
@@ -28,13 +27,13 @@
     z-index: 20;
 }
 
-.not-found-logo{
+.not-found-logo {
     left: 40px;
     position: absolute;
     top: 22px;
 }
 
-.not-found-link{
+.not-found-link {
     background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
@@ -43,17 +42,21 @@
     overflow: hidden;
 }
 
-.not-found-content{
+.not-found-content {
+    background-attachment: fixed;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex: 2 0;
     flex-direction: column;
-    margin: 0 1em;
+    /* margin: 0 1em; */
     position: relative;
     text-align: center;
 }
 
-.not-found-content::before{
-    background: radial-gradient(ellipse at center,rgba(0,0,0,.5) 0,rgba(0,0,0,.2) 45%,rgba(0,0,0,.1) 55%,transparent 70%);
+.not-found-content::before {
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, .5) 0, rgba(0, 0, 0, .2) 45%, rgba(0, 0, 0, .1) 55%, transparent 70%);
     bottom: -10vw;
     content: "";
     left: 10vw;
@@ -63,72 +66,70 @@
     z-index: 0;
 }
 
-.not-found-content::after{
-    background-attachment: fixed;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    bottom: 0;
-    content: "";
-    left: 0;
-    position: fixed;
-    right: 0;
+.not-found-content-message {
+    position: absolute;
     top: 0;
-    z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 60vh;
+    text-align: center;
 }
 
-.not-found-content-title{
+.not-found-content-title {
     color: inherit;
     margin-top: 0;
     text-shadow: 0 1px 2px rgb(0 0 0 / 57%);
 }
 
 .not-found-content h1 {
-    font-size: 6em;
+    font-size: 8.2em;
     font-weight: 700;
-    margin-bottom: 2vw;
+    margin-bottom: 2vh;
     z-index: 1;
 }
 
-.not-found-content-body{
-    display: flex;
-    flex: 1;
-    flex-direction: column;
+.not-found-content-body {
     margin: 0 auto;
     padding-bottom: 2em;
     width: 50vw;
     z-index: 1;
 }
 
-.not-found-content p{
-    color: inherit;
+.not-found-content p {
     margin-top: 0;
     text-shadow: 0 1px 2px rgb(0 0 0 / 57%);
-    font-size: 2.2em;
+    font-size: 3em;
     font-weight: 300;
 }
 
-.not-found-content-message{
-    display: flex;
+.not-found-content-button {
+    display: inline-block;
     justify-content: center;
-}
-
-.not-found-content-message button{
     background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0.8em 2.4em;
     color: black;
-    padding-left: 2.4rem;
-    padding-right: 2.4rem;
+    font-size: 2.4em;
+    font-weight: bold;
+    word-break: break-word;
+    white-space: nowrap;
 }
 
-.not-found-content-404{
+.not-found-content-404 {
     align-items: flex-end;
     display: flex;
     flex: 1;
     justify-content: center;
     margin-top: 2em;
+    height: 10vh;
 }
 
-.not-found-content-404 span{
+.not-found-content-404 span {
     border-left: 2px solid #e50914;
     font-size: 2.4em;
     font-weight: 100;
@@ -137,60 +138,16 @@
     padding: 0 1vw;
 }
 
-
-
-/* .notfound-background {
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.notfound-message {
-    position: fixed;
-    text-align: center;
-    width: 30vw;
-    height: 30vw;
-    top: calc((100% - 40vh)/2);
-    left: calc((100% - 30vw)/2);
-    margin-top: 75px;
-    background-color: #000000bb;
-    border-radius: 1rem;
-    padding: 1vw 2vw 4vw 2vw;
-}
-
-.h1-404 {
-    font-family: "Netflix_Bold";
-    font-weight: normal;
-    font-size: 4vw;
-    text-align: center;
-    color: #ffffff;
-    margin: 0 0 1vw 0;
-}
-
-.h1-notfound {
-    font-size: 3vw;
-    text-align: center;
-    color: #e50914;
-}
-
-.tmp-logo {
-    width: 20vw;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .tmp-logo {
-        animation: logo-spin infinite 10s linear;
+@media (max-width: 550px) {
+    .not-found-content-message {
+        height: 60vh;
     }
-}
-
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
+    
+    .not-found-content-body {
+        width: 50vw;
     }
 
-    to {
-        transform: rotate(360deg);
+    .not-found-content-404 {
+        height: 30vh;
     }
-} */
+}
