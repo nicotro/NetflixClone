@@ -2,16 +2,6 @@
     list-style-type: none;
     margin: 0 0 8px;
     font-size: 1.625rem;
-    
-    /*
-    width: 100%;
-    border: 0;
-    display: block;
-    text-align: left;
-    background: #303030;
-    cursor: pointer;
-    list-style-type: none;
-    margin: 8px auto; */
 }
 
 .faq-list-item-question {
@@ -26,8 +16,9 @@
     width: 100%;
 }
 
-.faq-list-item-question, .faq-list-item-question button{
-    color:inherit;
+.faq-list-item-question,
+.faq-list-item-question button {
+    color: inherit;
     font: inherit;
     margin: 0;
     cursor: pointer;
@@ -37,23 +28,23 @@
     background: #303030;
     font-weight: 400;
     text-align: left;
-    transition: max-height .25s cubic-bezier(.5,0,.1,1);
+    transition: max-height .25s cubic-bezier(.5, 0, .1, 1);
     max-height: 0;
     overflow: hidden;
     margin-top: 1px;
 }
 
-.faq-list-item-answer.open{
+.faq-list-item-answer.open {
     max-height: 1200px;
     margin-top: 1px;
 }
 
-.faq-list-item-answer-text{
+.faq-list-item-answer-text {
     display: inline-block;
     padding: 1.2em;
 }
 
-.faq-list-item-question-svg{
+.faq-list-item-question-svg {
     overflow: hidden;
     fill: #fff;
     height: 1em;
@@ -62,11 +53,11 @@
     top: 50%;
     width: 1em;
     transition: .3s smooth;
-    transform: translate(0,-50%) rotate(-45deg);
+    transform: translate(0, -50%) rotate(-45deg);
 }
 
-.faq-list-item-question-svg.cross{
-    transform: translate(-0.025em,-0.4em);
+.faq-list-item-question-svg.cross {
+    transform: translate(-0.025em, -0.4em);
 }
 
 
