@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { HomeFaqItem } from './home-faq-item';
 import { RegisterStart } from './register-start';
-import axios from "axios"
+import { getAll } from '../services/Data-faq';
 import HomeFaqData from './../data/faq.json';
 import './../style/home-section.css'
 
@@ -11,17 +11,31 @@ export function HomeFaqSection() {
     const [faqData, setFaqData] = useState([]);
 
 
+    // A tester !
     useEffect(() => {
-        getFaqData();
+        getAll()
+            .then(res => {
+                setFaqData(res.data);
+            })
+            .catch((err) => {
+                setFaqData([...HomeFaqData,
+                    {"id":4,"question":"What type of error is this?",
+                    "answer":`${err.name} on request ${err.config.method} ${err.config.url}`}
+                ]);
+            });
     }, [])
 
+    // useEffect(() => {
+    //     getFaqData();
+    // }, [])
 
-    const getFaqData = () => {
-        axios.get("http://localhost:5274/api/v1/faq").then(res => {
-            setFaqData(res.data);
-            // add json if api not available
-        })
-    }
+
+    // const getFaqData = () => {
+    //     axios.get("http://localhost:5274/api/v1/faq").then(res => {
+    //         setFaqData(res.data);
+    //         // add json if api not available
+    //     })
+    // }
 
     const HandleToggle = (itemId) => {
         if (clicked === itemId) {
