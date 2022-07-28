@@ -4,17 +4,19 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace NetflixCloneEntity.Classes
+namespace NetflixCloneAPI.Models
 {
     [Table("video")]
     public class Video
     {
         private string id;
-        //private int resource_id;
         private string text;
-        private string url;
+        private string uri;
+
+        private int resourceId;
 
         public Video()
         {
@@ -22,17 +24,20 @@ namespace NetflixCloneEntity.Classes
 
         public string Id { get => id; set => id = value; }
 
-        //[Column("resource_id")]
-        //[Required]
-        //public int Resource_id { get => resource_id; set => resource_id = value; }
-
         [Column("text")]
         [Required]
         public string Text { get => text; set => text = value; }
 
-        [Column("url")]
+        [Column("uri")]
         [StringLength(maximumLength: 255)]
         [Required]
-        public string Url { get => url; set => url = value; }
+        public string Uri { get => uri; set => uri = value; }
+
+        [Column("resource_id")]
+        public int ResourceId { get => resourceId; set => resourceId = value; }
+
+        [JsonIgnore]
+        [ForeignKey("ResourceId")]
+        public Resource resource { get; set; }
     }
 }

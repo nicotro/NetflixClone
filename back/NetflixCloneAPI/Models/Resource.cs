@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetflixCloneEntity.Classes
+namespace NetflixCloneAPI.Models
 {
     [Table("resource")]
     public class Resource
@@ -36,7 +36,7 @@ namespace NetflixCloneEntity.Classes
         [Required]
         public string Season { get => season; set => season = value; }
 
-        public virtual List<Category> Categories { get; set; }
+        public virtual List<Category_resource> Category_Resources { get; set; }
         public virtual List<Image> Images { get; set; }
         public virtual List<Video> Videos { get; set; }
     }

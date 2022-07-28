@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetflixCloneEntity.Classes
+namespace NetflixCloneAPI.Models
 {
-    [Table("Faq")]
+    [Table("faq")]
     public class Faq
     {
         private int id;

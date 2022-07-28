@@ -4,9 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace NetflixCloneEntity.Classes
+namespace NetflixCloneAPI.Models
 {
     [Table("user")]
     public class User
@@ -17,7 +18,7 @@ namespace NetflixCloneEntity.Classes
         private string lastName;
         private string email;
         private string password;
-        private Role role;
+        private int roleId;
         private bool banned;
 
         public User()
@@ -47,10 +48,13 @@ namespace NetflixCloneEntity.Classes
         [Required]
         public string Password { get => password; set => password = value; }
 
-        [ForeignKey("role_id")]
-        public int RoleId { get; set; }
-        public Role Role { get => role; set => role = value; }
-        
+        [Column("role_id")]
+        public int RoleId { get => roleId; set => roleId = value; }
+
+        [JsonIgnore]
+        [ForeignKey("RoleId")]
+        public Role role { get; set; }
+
         [Column("banned_user")]
         public bool Banned { get => banned; set => banned = value; }
     }
