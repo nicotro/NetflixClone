@@ -6,7 +6,7 @@ import { RegisterStart } from "./register-start";
 export function Header() {
   return (
     <div
-      className="bg-header home-section"
+      className="bg-header"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="bg-fade" />
