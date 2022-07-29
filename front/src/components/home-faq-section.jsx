@@ -11,13 +11,13 @@ export function HomeFaqSection() {
     const [faqData, setFaqData] = useState([]);
 
 
-    // A tester !
     useEffect(() => {
         getAll()
             .then(res => {
                 setFaqData(res.data);
             })
             .catch((err) => {
+                // use local json if api not available
                 setFaqData([...HomeFaqData,
                     {"id":4,"question":"What type of error is this?",
                     "answer":`${err.name} on request ${err.config.method} ${err.config.url}`}
@@ -25,17 +25,6 @@ export function HomeFaqSection() {
             });
     }, [])
 
-    // useEffect(() => {
-    //     getFaqData();
-    // }, [])
-
-
-    // const getFaqData = () => {
-    //     axios.get("http://localhost:5274/api/v1/faq").then(res => {
-    //         setFaqData(res.data);
-    //         // add json if api not available
-    //     })
-    // }
 
     const HandleToggle = (itemId) => {
         if (clicked === itemId) {

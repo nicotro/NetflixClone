@@ -53,7 +53,7 @@ namespace NetflixCloneAPI.Models
 
         [JsonIgnore]
         [ForeignKey("RoleId")]
-        public Role role { get; set; }
+        public Role Role { get; set; }
 
         [Column("banned_user")]
         public bool Banned { get => banned; set => banned = value; }
