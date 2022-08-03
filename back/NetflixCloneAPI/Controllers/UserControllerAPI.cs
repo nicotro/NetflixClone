@@ -22,12 +22,18 @@ namespace NetflixCloneAPI.Controllers
             string token = _loginService.Login(userDTO);
             if (token != null)
             {
-                return Ok(token);
+                return Ok(new { token,User });
             }
             else
             {
                 return StatusCode(401);
             }
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok("test Get admin");
         }
     }
 }

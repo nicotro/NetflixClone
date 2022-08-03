@@ -21,10 +21,10 @@ namespace NetflixCloneAPI.Services
             throw new NotImplementedException();
         }
 
-        public bool Login(string username, string password)
+/*        public bool Login(string username, string password)
         {
             throw new NotImplementedException();
-        }
+        }*/
 
         public string Login(UserDTO userDTO)
         {

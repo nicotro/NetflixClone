@@ -14,7 +14,7 @@ namespace NetflixCloneAPI.Services
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Administrateur\Desktop\Projets\NetflixClone\back\NetflixCloneDB.mdf;Integrated Security=True;Connect Timeout=30");
+            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\n8\Work\m2i\Module 2\NetflixClone\back\LocalDB_files\NetflixCloneDB.mdf"";Integrated Security=True;Connect Timeout=30");
         }
 
     }
