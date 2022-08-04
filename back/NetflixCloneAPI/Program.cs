@@ -43,6 +43,13 @@ builder.Services.AddAuthentication(a =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is the NetflixClone JWT token encoding string"))
     };
 });
+builder.Services.AddAuthorization(builder =>
+{
+    builder.AddPolicy("admin", options =>
+    {
+        options.RequireRole("admin");
+    });
+});
 builder.Services.AddControllers();
 
 var app = builder.Build();

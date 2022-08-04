@@ -8,7 +8,7 @@ using static NetflixCloneAPI.Interfaces.Ilogin;
 
 namespace NetflixCloneAPI.Services
 {
-    public class LoginService:ILogin
+    public class LoginService : ILogin
     {
         private BaseRepository<User> _userRepository;
         public LoginService(BaseRepository<User> userRepository)
@@ -21,19 +21,35 @@ namespace NetflixCloneAPI.Services
             throw new NotImplementedException();
         }
 
-/*        public bool Login(string username, string password)
-        {
-            throw new NotImplementedException();
-        }*/
+        /*        public bool Login(string username, string password)
+                {
+                    throw new NotImplementedException();
+                }*/
 
-        public string Login(UserDTO userDTO)
+        public LoginDTO Login(UserDTO userDTO)
         {
-            User u = _userRepository.Find(u => u.Email == userDTO.Username && u.Password == userDTO.Password);
+            string message = "User unknown";
+            string token = null;
+            string firstname = null;
+            string role = null;
+
+            User u = _userRepository.Find(u => u.Email == userDTO.Username);
             if (u != null)
             {
-                return CreateToken(u);
+                if (u.Password == userDTO.Password)
+                {
+                    message = "OK";
+                    token = CreateToken(u);
+                    firstname = u.FirstName;
+                    role = u.Role.Function;
+                }
+                else
+                {
+                    message = "Invalid password";
+                }
             }
-            return null;
+            return new LoginDTO(message, token, firstname, role);
+
         }
 
         private string CreateToken(User user)

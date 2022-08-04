@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using static NetflixCloneAPI.Interfaces.Ilogin;
 
@@ -19,18 +20,19 @@ namespace NetflixCloneAPI.Controllers
         [HttpPost]
         public IActionResult Post(UserDTO userDTO)
         {
-            string token = _loginService.Login(userDTO);
-            if (token != null)
+            LoginDTO login = _loginService.Login(userDTO);
+            if (login.Status == "OK")
             {
-                return Ok(new { token,User });
+                return Ok(login);
             }
             else
             {
-                return StatusCode(401);
+                return BadRequest(login.Status);
             }
         }
 
         [HttpGet]
+        [Authorize("admin")]
         public IActionResult Get()
         {
             return Ok("test Get admin");

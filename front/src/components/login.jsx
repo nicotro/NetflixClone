@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { login } from '../services/db-access';
 
+import axios from '../api/axios';
+const loginURL = "/user";
 
 export const Login = () => {
     const [user, setUser] = useState("");
@@ -24,8 +25,16 @@ export const Login = () => {
     const handleSubmit = async (ev) => {
         ev.preventDefault();
         try {
-            const response = loginAPI("/user", user, password);
-            console.log(JSON.stringify(response));
+            const response = await axios.post(
+                loginURL,
+                JSON.stringify({ username: user, password }),
+                {
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true
+                }
+            );
+            console.log("response:", JSON.stringify(response));
+            console.log("status = ", response.data.role);
             setUser("");
             setPassword("");
 
