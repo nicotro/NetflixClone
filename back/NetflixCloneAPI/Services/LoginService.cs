@@ -21,10 +21,6 @@ namespace NetflixCloneAPI.Services
             throw new NotImplementedException();
         }
 
-        /*        public bool Login(string username, string password)
-                {
-                    throw new NotImplementedException();
-                }*/
 
         public LoginDTO Login(UserDTO userDTO)
         {
@@ -33,7 +29,7 @@ namespace NetflixCloneAPI.Services
             string firstname = null;
             string role = null;
 
-            User u = _userRepository.Find(u => u.Email == userDTO.Username);
+            User u = _userRepository.Find(u => u.Email == userDTO.Username||u.Phone==userDTO.Username);
             if (u != null)
             {
                 if (u.Password == userDTO.Password)

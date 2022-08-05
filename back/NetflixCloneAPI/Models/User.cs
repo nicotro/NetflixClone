@@ -16,6 +16,7 @@ namespace NetflixCloneAPI.Models
         private int id;
         private string firstName;
         private string lastName;
+        private string phone;
         private string email;
         private string password;
         private int roleId;
@@ -37,6 +38,11 @@ namespace NetflixCloneAPI.Models
         [StringLength(maximumLength: 255)]
         [Required]
         public string LastName { get => lastName; set => lastName = value; }
+
+        [Column("phone")]
+        [StringLength(maximumLength: 10)]
+        [Required]
+        public string Phone { get => phone; set => phone = value; }
 
         [Column("email")]
         [StringLength(maximumLength: 100)]

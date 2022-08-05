@@ -21,7 +21,10 @@ export const Login = () => {
         setErrorMessage("");
     }, [user, password]);
 
-    // API stuff goes here
+
+
+    // Check response content !!!
+
     const handleSubmit = async (ev) => {
         ev.preventDefault();
         try {
@@ -33,8 +36,9 @@ export const Login = () => {
                     withCredentials: true
                 }
             );
-            console.log("response:", JSON.stringify(response));
-            console.log("status = ", response.data.role);
+            console.log("response:", response);
+            console.log("user = ", response.data.firstName);
+            console.log("role = ", response.data.role);
             setUser("");
             setPassword("");
 
@@ -43,7 +47,7 @@ export const Login = () => {
                 setErrorMessage("No server response");
             } else switch (err.response.status) {
                 case 400:
-                    setErrorMessage("Username or Password missing")
+                    setErrorMessage(err.response.data)
                     break;
                 case 401:
                     setErrorMessage("Unauthorized access")
@@ -52,7 +56,7 @@ export const Login = () => {
                     setErrorMessage("Login failled")
                     break;
             }
-            console.log("Error: ", err.response.status, errorMessage);
+            console.log("Error: ", errorMessage);
         }
     }
 
@@ -65,7 +69,7 @@ export const Login = () => {
                     type="text"
                     id="username"
                     ref={userRef}
-                    autocomplete="off"
+                    autoComplete="off"
                     required
                     onChange={(ev) => setUser(ev.target.value)}
                     placeholder="Email or phone number"
@@ -74,7 +78,7 @@ export const Login = () => {
                 <input
                     type="paswword"
                     id="password"
-                    autocomplete="off"
+                    autoComplete="off"
                     required
                     onChange={(ev) => setPassword(ev.target.value)}
                     placeholder="Password"
