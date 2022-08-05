@@ -17,11 +17,14 @@
         border-radius: 5px;
         width: 100%;
         margin: 120px auto;
-        max-width: 400px;
+        max-width: 450px;
+    }
+
+    .login-body {
         padding: 60px 68px 40px;
     }
 
-    .login-container h1 {
+    .login-body h1 {
         color: white;
         font-size: 32px;
         font-weight: 700;
@@ -62,7 +65,7 @@
     .modal-content section {
         height: 300px;
         min-height: 300px;
-        margin-top: 64px;
+        /* margin-top: 64px; */
     }
 
 
@@ -81,6 +84,10 @@
             width: 100%;
             margin: 120px auto;
             max-width: 100%;
-            padding: 60px 68px 40px;
+            padding: 0;
+        }
+
+        .login-body {
+            padding: 0 5%;
         }
     }

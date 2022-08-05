@@ -5,10 +5,12 @@ export function LoginSection() {
     return (
         <div className="login-fade">
             <div className='login-container'>
-                <h1>Sign In</h1>
-                <div className='modal-content'>
-                    <Login />
-                </div>
+                <div className='login-body'>
+                    <h1>Sign In</h1>
+                    <div className='modal-content'>
+                        <Login />
+                    </div>
+                </div >
             </div >
         </div>
     );

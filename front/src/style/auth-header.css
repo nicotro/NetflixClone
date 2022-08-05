@@ -12,3 +12,9 @@
     min-height: 750px;
     z-index: 1;
 }
+
+@media (max-width: 740px) {
+    .auth-section {
+        background-image: none !important;
+    }
+}

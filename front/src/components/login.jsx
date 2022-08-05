@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import "./../style/login.css"
 
 import axios from '../api/axios';
 const loginURL = "/user";
@@ -8,6 +9,7 @@ export const Login = () => {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [errorMessageLink, setErrorMessageLink] = useState(false);
 
     const userRef = useRef();
 
@@ -19,11 +21,12 @@ export const Login = () => {
     useEffect(() => {
         // reset the error message on new user/password input
         setErrorMessage("");
+        setErrorMessageLink(false);
     }, [user, password]);
 
 
 
-    // Check response content !!!
+    // Redirect on successful login
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
@@ -36,18 +39,20 @@ export const Login = () => {
                     withCredentials: true
                 }
             );
-            console.log("response:", response);
-            console.log("user = ", response.data.firstName);
-            console.log("role = ", response.data.role);
             setUser("");
             setPassword("");
-
         } catch (err) {
+            console.log(err.response.data);
             if (!err.response) {
                 setErrorMessage("No server response");
             } else switch (err.response.status) {
                 case 400:
-                    setErrorMessage(err.response.data)
+                    if (err.response.data === "User unknown") {
+                        setErrorMessageLink(true);
+                        setErrorMessage("Sorry, we can't find an account with this email address. Please try again or ")
+                    } else {
+                        setErrorMessage("Invalid password, please try again.")
+                    }
                     break;
                 case 401:
                     setErrorMessage("Unauthorized access")
@@ -56,42 +61,62 @@ export const Login = () => {
                     setErrorMessage("Login failled")
                     break;
             }
-            console.log("Error: ", errorMessage);
         }
     }
 
 
     return (
         <section>
-            <p className={errorMessage ? "error-message-display" : "error-message-hide"}>{errorMessage}</p>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    id="username"
-                    ref={userRef}
-                    autoComplete="off"
-                    required
-                    onChange={(ev) => setUser(ev.target.value)}
-                    placeholder="Email or phone number"
-                    value={user}
-                />
-                <input
-                    type="paswword"
-                    id="password"
-                    autoComplete="off"
-                    required
-                    onChange={(ev) => setPassword(ev.target.value)}
-                    placeholder="Password"
-                    value={password}
-                />
-                <button>Sign In</button>
-                <p>
-                    New to Netflix?
-                    <Link to="/register">
-                        Sign up now.
-                    </Link>
-                </p>
-            </form>
+            <div className={`error-message ${errorMessage ? "error-message-display" : "error-message-hide"}`}>
+                {!errorMessageLink
+                    ?
+                    <p className='error-message-text'>{errorMessage}</p>
+                    :
+                    <p className='error-message-text'>
+                        {errorMessage}
+                        <Link className='error-message-link' to="/register">
+                            create a new account
+                        </Link>.
+                    </p>
+                }
+            </div>
+            <div className='login-form-input-container'>
+                <form className='login-form' onSubmit={handleSubmit}>
+                    <div className='login-form-float'>
+                        <input
+                            type="text"
+                            id="username"
+                            ref={userRef}
+                            autoComplete="off"
+                            required
+                            onChange={(ev) => setUser(ev.target.value)}
+                            value={user}
+                        />
+                        <label className={user && 'filled'}>Email or phone number</label>
+                    </div>
+
+                    <div className='login-form-float'>
+                        <input
+                            type="password"
+                            id="password"
+                            autoComplete="off"
+                            required
+                            onChange={(ev) => setPassword(ev.target.value)}
+                            value={password}
+                        />
+                        <label className={password && 'filled'}>Password</label>
+                    </div>
+                    <button className='login-form-button'>Sign In</button>
+                    <div className='login-signup-container'>
+                        <span className='login-signup-now'>
+                            New to Netflix?
+                        </span>
+                        <Link className='login-signup-link' to="/register">
+                            Sign up now.
+                        </Link>
+                    </div>
+                </form>
+            </div>
         </section>
     );
 }
