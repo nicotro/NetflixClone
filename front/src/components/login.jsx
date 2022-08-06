@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import "./../style/login.css"
 
 import axios from '../api/axios';
@@ -12,6 +13,14 @@ export const Login = () => {
     const [errorMessageLink, setErrorMessageLink] = useState(false);
 
     const userRef = useRef();
+
+    // Redux 
+    //
+    // const { firstName, role, loggedIn } = useSelector((state) => ({
+    //     ...state.userReducer,
+    // }));
+    // const dispatch = useDispatch();
+    // console.log(firstName, role, loggedIn);
 
     useEffect(() => {
         // set the focus to the user input on component loading
@@ -27,6 +36,7 @@ export const Login = () => {
 
 
     // Redirect on successful login
+    const navigate = useNavigate();
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
@@ -41,9 +51,9 @@ export const Login = () => {
             );
             setUser("");
             setPassword("");
+            navigate('/user');
         } catch (err) {
-            console.log(err.response.data);
-            if (!err.response) {
+            if (err.response.data === undefined) {
                 setErrorMessage("No server response");
             } else switch (err.response.status) {
                 case 400:
