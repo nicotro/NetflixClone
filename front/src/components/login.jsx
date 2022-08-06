@@ -74,7 +74,7 @@ export const Login = () => {
                     :
                     <p className='error-message-text'>
                         {errorMessage}
-                        <Link className='error-message-link' to="/register">
+                        <Link className='error-message-link' to="/">
                             create a new account
                         </Link>.
                     </p>
@@ -94,7 +94,6 @@ export const Login = () => {
                         />
                         <label className={user && 'filled'}>Email or phone number</label>
                     </div>
-
                     <div className='login-form-float'>
                         <input
                             type="password"
@@ -111,7 +110,7 @@ export const Login = () => {
                         <span className='login-signup-now'>
                             New to Netflix?
                         </span>
-                        <Link className='login-signup-link' to="/register">
+                        <Link className='login-signup-link' to="/">
                             Sign up now.
                         </Link>
                     </div>

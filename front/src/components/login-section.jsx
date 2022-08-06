@@ -1,4 +1,4 @@
-import './../style/login-container.css'
+import './../style/login-section.css'
 import { Login } from './login';
 
 export function LoginSection() {
@@ -7,9 +7,7 @@ export function LoginSection() {
             <div className='login-container'>
                 <div className='login-body'>
                     <h1>Sign In</h1>
-                    <div className='modal-content'>
-                        <Login />
-                    </div>
+                    <Login />
                 </div >
             </div >
         </div>

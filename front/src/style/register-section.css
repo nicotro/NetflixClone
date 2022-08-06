@@ -1,0 +1,51 @@
+.register-fade {
+    position: absolute;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.75) 100%), radial-gradient(ellipse at center, rgba(0, 0, 0, .75) 0, rgba(0, 0, 0, .15) 45%, rgba(0, 0, 0, .075) 55%);
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 570px;
+    background-color: rgba(0, 0, 0, 0.75);
+    margin-bottom: 100px;
+    border-radius: 5px;
+    width: 100%;
+    margin: 120px auto;
+    max-width: 450px;
+}
+
+.register-body {
+    padding: 60px 68px 40px;
+}
+
+.register-body h1 {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 28px 0;
+    text-align: left;
+}
+
+
+@media (max-width: 740px) {
+    .register-container {
+        min-height: 570px;
+        background-color: rgba(0, 0, 0, 1);
+        margin-bottom: 100px;
+        border-radius: 5px;
+        width: 100%;
+        margin: 120px auto;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .register-body {
+        padding: 0 5%;
+    }
+}
