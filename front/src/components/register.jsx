@@ -1,12 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './../style/register.css';
 
 export const Register = () => {
 
+    // get email from navigation param
+    const { state } = useLocation();
+    console.log(state);
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState(state);
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
 

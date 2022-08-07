@@ -1,12 +1,12 @@
-.register-form {
-    margin-bottom: 0;
-    width: 100%;
-}
-
 .register-form-input-container {
     padding-bottom: 16px;
     max-width: 100%;
     position: relative;
+}
+
+.register-form {
+    margin-bottom: 0;
+    width: 100%;
 }
 
 .register-form-float {
