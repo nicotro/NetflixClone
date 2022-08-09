@@ -104,6 +104,12 @@
     width: 100%;
 } */
 
+.login-input-error {
+    color: #b92d2b;
+    font-size: 13px;
+    padding-left: 4px;
+}
+
 .login-form-button {
     position: relative;
     margin: 24px 0 12px;

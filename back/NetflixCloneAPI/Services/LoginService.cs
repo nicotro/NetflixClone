@@ -21,6 +21,27 @@ namespace NetflixCloneAPI.Services
             throw new NotImplementedException();
         }
 
+        public string Register(NewUserDTO newUserDTO)
+        {
+            string message = null;
+            User u = _userRepository.Find(u => u.Email == newUserDTO.Email
+                                        && u.Phone == newUserDTO.Phone
+                                        && u.FirstName == newUserDTO.FirstName
+                                        && u.LastName == newUserDTO.LastName);
+            if (u != null)
+            {
+                message = "This account already exists, please contact an admin.";
+            }
+            else
+            {
+                u = new User(newUserDTO.FirstName, newUserDTO.LastName, newUserDTO.Phone, newUserDTO.Email,newUserDTO.Password, 2, false);
+                if (!_userRepository.Add(u))
+                {
+                    message = "Registration error.";
+                }
+            }
+            return message;
+        }
 
         public LoginDTO Login(UserDTO userDTO)
         {
@@ -29,19 +50,26 @@ namespace NetflixCloneAPI.Services
             string firstname = null;
             string role = null;
 
-            User u = _userRepository.Find(u => u.Email == userDTO.Username||u.Phone==userDTO.Username);
+            User u = _userRepository.Find(u => u.Email == userDTO.Username || u.Phone == userDTO.Username);
             if (u != null)
             {
-                if (u.Password == userDTO.Password)
+                if (u.Banned && u.Password == userDTO.Password)
                 {
-                    message = "OK";
-                    token = CreateToken(u);
-                    firstname = u.FirstName;
-                    role = u.Role.Function;
+                    message = "Banned user";
                 }
                 else
                 {
-                    message = "Invalid password";
+                    if (u.Password == userDTO.Password)
+                    {
+                        message = "OK";
+                        token = CreateToken(u);
+                        firstname = u.FirstName;
+                        role = u.Role.Function;
+                    }
+                    else
+                    {
+                        message = "Invalid password";
+                    }
                 }
             }
             return new LoginDTO(message, token, firstname, role);

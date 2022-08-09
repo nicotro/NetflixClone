@@ -17,6 +17,7 @@ namespace NetflixCloneAPI.Controllers
             _loginService = loginService;
         }
 
+        [Route("signin")]
         [HttpPost]
         public IActionResult Post(UserDTO userDTO)
         {
@@ -28,6 +29,21 @@ namespace NetflixCloneAPI.Controllers
             else
             {
                 return BadRequest(login.Status);
+            }
+        }
+
+        [Route("signup")]
+        [HttpPost]
+        public IActionResult Post(NewUserDTO newUserDTO)
+        {
+            string createNewUser = _loginService.Register(newUserDTO);
+            if (createNewUser ==null)
+            {
+                return Ok($"Account successfully created, welcome {newUserDTO.FirstName}!");
+            }
+            else
+            {
+                return BadRequest(createNewUser);
             }
         }
 

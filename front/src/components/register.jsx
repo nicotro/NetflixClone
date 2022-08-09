@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import axios from '../api/axios-user';
 import './../style/register.css';
 
 export const Register = () => {
@@ -18,12 +19,15 @@ export const Register = () => {
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
 
+    const [errorMessage, setErrorMessage] = useState("");
+
     const nameRef = useRef();
 
+    const registerURL = "/signup"
     const NAMES_REGEX = /^[A-z][A-z0-9-]{3,23}$/;
     const PHONE_REGEX = /^[0-9]{10}$/;
     const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+    const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%_-]).{8,24}$/;
 
     useEffect(() => {
         // set the focus to the firstname input on component loading
@@ -71,19 +75,63 @@ export const Register = () => {
         setPhone(input);
     }
 
+    const validatePassword = (input) => {
+        if (PASSWORD_REGEX.test(input)) {
+            setPasswordError("");
+        }
+        else {
+            setPasswordError("8 to 24 characters combination of upper and lowercase letters, digits and special characters.");
+        }
+        setPassword(input);
+    }
 
+    // Redirect on successful registration
+    const navigate = useNavigate();
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
-        setFirstName("");
-        setLastName("");
-        setEmail("");
-        setPhone("");
-        setPassword("");
+        try {
+            const response = await axios.post(
+                registerURL,
+                JSON.stringify({ firstName, lastName, email, phone, password }),
+                {
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true
+                }
+            );
+            setErrorMessage("");
+            setFirstName("");
+            setLastName("");
+            setEmail("");
+            setPhone("");
+            setPassword("");
+            // navigate to user or login ?
+            navigate('/user');
+        } catch (err) {
+            console.log(err.response);
+            if (err.response.data === undefined) {
+                setErrorMessage("No server response");
+            }
+            else switch (err.response.status) {
+                case 400:
+                    setErrorMessage(err.response.data);
+                    break;
+                case 401:
+                    setErrorMessage("Unauthorized access");
+                    break;
+                default:
+                    setErrorMessage("Registration failled")
+                    break;
+            }
+        }
     }
 
     return (
         <section>
+            <div className={errorMessage && "signup-error-message"}>
+                <p className='signup-error-message-text'>{errorMessage}</p>
+            </div>
+
             <div className='register-form-input-container'>
                 <form className='register-form' onSubmit={handleSubmit}>
                     <div className='register-form-float'>
@@ -153,11 +201,15 @@ export const Register = () => {
                             id="password"
                             autoComplete="off"
                             required
-                            onChange={(ev) => setPassword(ev.target.value)}
+                            onChange={(ev) => validatePassword(ev.target.value)}
                             value={password}
                         />
                         <label className={password && 'filled'}>Password</label>
                     </div>
+                    <div className={passwordError && 'register-input-error'}>
+                        {passwordError}
+                    </div>
+
                     <button className='register-form-button'>Register</button>
                     <div className='register-signup-container'>
                         <span className='register-signup-now'>

@@ -4,6 +4,20 @@
     position: relative;
 }
 
+.signup-error-message {
+    background: #e87c03;
+    border-radius: 4px;
+    width: 100%;
+    margin: 0 0 16px;
+    display: table;
+}
+
+.signup-error-message-text {
+    padding: 10px 20px;
+    font-size: 14px !important;
+    color: white;
+}
+
 .register-form {
     margin-bottom: 0;
     width: 100%;
@@ -23,7 +37,7 @@
     font-size: 19px;
     height: 50px;
     line-height: 50px;
-    margin: 10px auto;
+    margin: 5px auto;
     padding: 16px 20px 0;
     width: 100%;
     width: -moz-available;

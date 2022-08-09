@@ -3,16 +3,21 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import "./../style/login.css"
 
-import axios from '../api/axios';
-const loginURL = "/user";
+import axios from '../api/axios-user';
+const loginURL = "/signin";
 
 export const Login = () => {
     const [user, setUser] = useState("");
+    const [userError, setUserError] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const [errorMessageLink, setErrorMessageLink] = useState(false);
 
     const userRef = useRef();
+
+    const PHONE_REGEX = /^[0-9]{10}$/;
+    const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
 
     // Redux 
     //
@@ -33,7 +38,15 @@ export const Login = () => {
         setErrorMessageLink(false);
     }, [user, password]);
 
-
+    const validateUser = (input) => {
+        if (EMAIL_REGEX.test(input) || PHONE_REGEX.test(input)) {
+            setUserError("")
+        }
+        else {
+            setUserError("A valid email address or phone number is required.")
+        }
+        setUser(input);
+    }
 
     // Redirect on successful login
     const navigate = useNavigate();
@@ -99,11 +112,15 @@ export const Login = () => {
                             ref={userRef}
                             autoComplete="off"
                             required
-                            onChange={(ev) => setUser(ev.target.value)}
+                            onChange={(ev) => validateUser(ev.target.value)}
                             value={user}
                         />
                         <label className={user && 'filled'}>Email or phone number</label>
                     </div>
+                    <div className={userError && 'login-input-error'}>
+                        {userError}
+                    </div>
+
                     <div className='login-form-float'>
                         <input
                             type="password"

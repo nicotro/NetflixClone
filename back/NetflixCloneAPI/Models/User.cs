@@ -27,6 +27,17 @@ namespace NetflixCloneAPI.Models
             Banned = false;
         }
 
+        public User(string firstName, string lastName, string phone, string email, string password, int roleId, bool banned)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Phone = phone;
+            Email = email;
+            Password = password;
+            RoleId = roleId;
+            Banned = banned;
+        }
+
         public int Id { get => id; set => id = value; }
 
         [Column("first_name")]
