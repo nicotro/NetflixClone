@@ -57,6 +57,11 @@
     color: #8c8c8c;
 }
 
+.register-input-error {
+    color: #b92d2b;
+    font-size: 13px;
+    padding-left: 4px;
+}
 
 .register-form-button {
     position: relative;

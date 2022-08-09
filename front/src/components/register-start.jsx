@@ -23,8 +23,10 @@ export function RegisterStart() {
     }
   }
 
+  const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
   const validateEmail = (mail) => {
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+    if (EMAIL_REGEX.test(mail)) {
       setErrorMessage("")
     }
     else {
