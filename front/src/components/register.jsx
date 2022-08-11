@@ -105,8 +105,8 @@ export const Register = () => {
             setEmail("");
             setPhone("");
             setPassword("");
-            // navigate to user or login ?
-            navigate('/user');
+            // navigate to login
+            navigate('/login', { state: { email, password } });
         } catch (err) {
             console.log(err.response);
             if (err.response.data === undefined) {

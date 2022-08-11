@@ -47,6 +47,14 @@ namespace NetflixCloneAPI.Controllers
             }
         }
 
+        [Route("signedin")]
+        [HttpGet]
+        [Authorize("users")]
+        public IActionResult Check()
+        {
+            return Ok();
+        }
+
         [HttpGet]
         [Authorize("admin")]
         public IActionResult Get()

@@ -8,6 +8,8 @@ const INITIAL_STATE = {
 export default function userReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case "LOGIN": {
+            console.log("login state : ", state);
+            console.log("payload : ", action.payload);
             return {
                 ...state,
                 firstName: action.payload.firstName,

@@ -81,7 +81,7 @@ namespace NetflixCloneAPI.Services
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             SecurityTokenDescriptor securityTokenDescriptor = new SecurityTokenDescriptor()
             {
-                Expires = DateTime.Now.AddDays(1),
+                Expires = DateTime.Now.AddSeconds(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is the NetflixClone JWT token encoding string")), SecurityAlgorithms.HmacSha256Signature),
                 Issuer = "NetflixClone",
                 Audience = "NetflixClone",

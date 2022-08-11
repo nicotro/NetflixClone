@@ -49,6 +49,10 @@ builder.Services.AddAuthorization(builder =>
     {
         options.RequireRole("admin");
     });
+    builder.AddPolicy("users", options =>
+    {
+        options.RequireRole("admin","user");
+    });
 });
 builder.Services.AddControllers();
 

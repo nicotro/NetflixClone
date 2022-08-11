@@ -1,4 +1,5 @@
-import axios from "../api/axios";
+import axios from "../api/axios-user";
+import { GetTokenFromStorage } from "../api/token-user";
 
 // export const getAll = async () => {
 //     return await axios.get(loginURL);
@@ -14,3 +15,16 @@ export const loginAPI = async (loginURL, username, password) => {
         }
     );
 }
+
+export const isLoggedAPI = async (loggedURL) => {
+    return axios.get(loggedURL, { headers: { "Authorization": "Bearer " + GetTokenFromStorage() } })
+    // .then((res) => {
+    //     console.log("API access OK", res);
+    //     return "OK";
+    // })
+    // .catch((err) => {
+    //     console.log("API access error: ", err);
+    //     return "";
+    // });
+}
+

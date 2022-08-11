@@ -1,16 +1,20 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from '../api/axios-user';
+import { SetTokenOnLogin, setTokenOnLogin } from '../api/token-user';
 import "./../style/login.css"
 
-import axios from '../api/axios-user';
 const loginURL = "/signin";
 
 export const Login = () => {
-    const [user, setUser] = useState("");
+    // get params from navigation if component called by register component
+    const { state } = useLocation();
+
+    const [user, setUser] = useState(state === null ? "" : state.email);
     const [userError, setUserError] = useState("");
-    const [password, setPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
+    const [password, setPassword] = useState(state === null ? "" : state.password);;
+    const [errorMessage, setErrorMessage] = useState(state !== null ? "The account was successfully created, please sign in." : "");
     const [errorMessageLink, setErrorMessageLink] = useState(false);
 
     const userRef = useRef();
@@ -20,12 +24,7 @@ export const Login = () => {
 
 
     // Redux 
-    //
-    // const { firstName, role, loggedIn } = useSelector((state) => ({
-    //     ...state.userReducer,
-    // }));
-    // const dispatch = useDispatch();
-    // console.log(firstName, role, loggedIn);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         // set the focus to the user input on component loading
@@ -34,8 +33,10 @@ export const Login = () => {
 
     useEffect(() => {
         // reset the error message on new user/password input
-        setErrorMessage("");
-        setErrorMessageLink(false);
+        if (state === null) {
+            setErrorMessage("");
+            setErrorMessageLink(false);
+        }
     }, [user, password]);
 
     const validateUser = (input) => {
@@ -62,8 +63,14 @@ export const Login = () => {
                     withCredentials: true
                 }
             );
+            SetTokenOnLogin(response.data);
+
             setUser("");
             setPassword("");
+            dispatch({
+                type: "LOGIN",
+                payload: { firstName: response.data.firstName, role: response.data.role, loggedIn: true }
+            });
             navigate('/user');
         } catch (err) {
             if (err.response.data === undefined) {
@@ -86,7 +93,6 @@ export const Login = () => {
             }
         }
     }
-
 
     return (
         <section>
