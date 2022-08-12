@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetflixCloneAPI.Services;
 
@@ -10,9 +11,10 @@ using NetflixCloneAPI.Services;
 namespace NetflixCloneAPI.Migrations
 {
     [DbContext(typeof(DataContextService))]
-    partial class DataContextServiceModelSnapshot : ModelSnapshot
+    [Migration("20220812094051_genre-table-added")]
+    partial class genretableadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
