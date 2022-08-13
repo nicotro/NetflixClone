@@ -1,3 +1,4 @@
+// Redux usage to update for data to be persistent
 
 const INITIAL_STATE = {
     firstName: "",

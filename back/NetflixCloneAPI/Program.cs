@@ -14,6 +14,7 @@ builder.Services.AddDbContext<DataContextService>();
 builder.Services.AddScoped<ILogin, LoginService>();
 builder.Services.AddScoped<BaseRepository<Faq>, FaqRepository>();
 builder.Services.AddScoped<BaseRepository<User>, UserRepository>();
+builder.Services.AddScoped<BaseRepository<Category>, CategoryRepository>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>

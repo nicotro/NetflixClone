@@ -1,4 +1,5 @@
-import axios from "../api/axios-user";
+import axiosCategory from "../api/axios-category";
+import axiosUser from "../api/axios-user";
 import { GetTokenFromStorage } from "../api/token-user";
 
 // export const getAll = async () => {
@@ -6,7 +7,7 @@ import { GetTokenFromStorage } from "../api/token-user";
 // }
 
 export const loginAPI = async (loginURL, username, password) => {
-    return await axios.post(
+    return await axiosUser.post(
         loginURL,
         JSON.stringify({ username, password }),
         {
@@ -17,14 +18,10 @@ export const loginAPI = async (loginURL, username, password) => {
 }
 
 export const isLoggedAPI = async (loggedURL) => {
-    return axios.get(loggedURL, { headers: { "Authorization": "Bearer " + GetTokenFromStorage() } })
-    // .then((res) => {
-    //     console.log("API access OK", res);
-    //     return "OK";
-    // })
-    // .catch((err) => {
-    //     console.log("API access error: ", err);
-    //     return "";
-    // });
+    return axiosUser.get(loggedURL, { headers: { "Authorization": "Bearer " + GetTokenFromStorage() } })
+}
+
+export const getCategories = async (categoryURL) => {
+    return axiosCategory.get(categoryURL, { headers: { "Authorization": "Bearer " + GetTokenFromStorage() } })
 }
 
