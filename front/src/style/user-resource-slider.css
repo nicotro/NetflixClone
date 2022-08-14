@@ -1,0 +1,30 @@
+.genre-container {
+    display: flex;
+    padding: 0;
+}
+
+.genre-item {
+    background: cyan;
+    color: blue;
+    flex: 0 0 19.7%;
+    height: 120px;
+    text-align: center;
+    margin: 1px;
+    cursor: pointer;
+    transition: transform 0.3s ease-out 0.1s;
+}
+
+/* translation -> left for all media-item*/
+.genre-container:hover .genre-item {
+    transform: translateX(-5%);
+}
+
+/* translation -> right for all media-item on the right of the active one  */
+.genre-item:hover~.genre-item {
+    transform: translateX(5%);
+}
+
+/* scale active media-item */
+.genre-item:hover {
+    transform: scale(1.1) !important;
+}
