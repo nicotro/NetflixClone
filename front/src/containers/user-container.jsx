@@ -10,6 +10,7 @@ export function UserContainer() {
   const [loaded, setLoaded] = useState(false);
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
+  
   const { firstName, role, loggedIn } = useSelector((state) => ({
     ...state.userReducer,
   }));
