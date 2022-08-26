@@ -1,4 +1,4 @@
-import axiosCategory from "../api/axios-category";
+import axiosResource from "../api/axios-resource";
 import axiosUser from "../api/axios-user";
 import { GetTokenFromStorage } from "../api/token-user";
 
@@ -22,6 +22,10 @@ export const isLoggedAPI = async (loggedURL) => {
 }
 
 export const getCategories = async (categoryURL) => {
-    return axiosCategory.get(categoryURL, { headers: { "Authorization": "Bearer " + GetTokenFromStorage() } })
+    return axiosResource.get(categoryURL, { headers: { "Authorization": "Bearer " + GetTokenFromStorage() } })
+}
+
+export const getGenres = async (genreURL) => {
+    return axiosResource.get(genreURL, { headers: { "Authorization": "Bearer " + GetTokenFromStorage() } })
 }
 

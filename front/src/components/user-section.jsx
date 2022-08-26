@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { UserResourceSlider } from "./user-resource-slider";
 
 export function UserSection({ category }) {
-    const [loadedCategory,setLoadedCategory]=useState(category);
-    
+    const [loadedCategory, setLoadedCategory] = useState(category);
+    const genreURL = "/genre";
+
     useEffect(() => {
-        
+
     }, []);
-    
+
+
     return (
         <>
             < div className="debug-white-text">

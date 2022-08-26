@@ -10,7 +10,7 @@ export function UserContainer() {
   const [loaded, setLoaded] = useState(false);
   const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
-  
+
   const { firstName, role, loggedIn } = useSelector((state) => ({
     ...state.userReducer,
   }));
@@ -26,10 +26,12 @@ export function UserContainer() {
       isLoggedAPI(loggedURL)
         .then(res => {
           userLoggedIn = true;
-          setLoaded(true);
           getCategories(categoryURL)
             .then(res => {
               setCategories(res.data);
+              // set to 1st category after loading categories list loading
+              setCategory(res.data[0].id);
+              setLoaded(true);
             })
             .catch(err => {
               console.log("error", err);
