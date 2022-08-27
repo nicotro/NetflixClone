@@ -26,7 +26,7 @@ namespace NetflixCloneAPI.Repositories
 
         public override List<Category> FindAll(Func<Category, bool> predicate)
         {
-            return _dataContextService.Categories.ToList().Where(u => predicate(u)).ToList();
+            return _dataContextService.Categories.ToList().Where(c => predicate(c)).ToList();
         }
     }
 }

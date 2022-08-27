@@ -54,7 +54,9 @@ export function UserContainer() {
         ?
         <div className="user-section">
           <UserHeader handleClick={handleClick} categories={categories} active={category} />
-          <UserSection category={category} />
+          {
+            categories.length > 0 && <UserSection category={category} />
+          }
         </div>
         :
         < div className="debug-white-text">
