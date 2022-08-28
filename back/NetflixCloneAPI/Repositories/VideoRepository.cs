@@ -26,7 +26,7 @@ namespace NetflixCloneAPI.Repositories
 
         public override List<Video> FindAll(Func<Video, bool> predicate)
         {
-            throw new NotImplementedException();
+            return _dataContextService.Videos.ToList().Where(v => predicate(v)).ToList();
         }
     }
 }

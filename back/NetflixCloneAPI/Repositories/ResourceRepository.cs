@@ -1,4 +1,5 @@
-﻿using NetflixCloneAPI.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using NetflixCloneAPI.Models;
 using NetflixCloneAPI.Services;
 
 namespace NetflixCloneAPI.Repositories
@@ -21,12 +22,18 @@ namespace NetflixCloneAPI.Repositories
 
         public override Resource Find(Func<Resource, bool> predicate)
         {
-            throw new NotImplementedException();
+            return _dataContextService.Resources
+                .Include(r => r.Images)
+                .Include(r => r.Videos)
+                .ToList().FirstOrDefault(a => predicate(a));
         }
 
         public override List<Resource> FindAll(Func<Resource, bool> predicate)
         {
-            throw new NotImplementedException();
+            return _dataContextService.Resources
+                .Include(r => r.Images)
+                .Include(r => r.Videos)
+                .ToList().Where(a => predicate(a)).ToList();
         }
     }
 }

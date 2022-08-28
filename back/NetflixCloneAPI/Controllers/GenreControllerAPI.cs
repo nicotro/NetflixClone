@@ -11,21 +11,21 @@ namespace NetflixCloneAPI.Controllers
     [ApiController]
     [EnableCors("AllowAll")]
 
-    public class GenreControllerAPI:ControllerBase
+    public class GenreControllerAPI : ControllerBase
     {
         private BaseRepository<Genre> _genreRepository;
 
-        public GenreControllerAPI(BaseRepository<Genre> genreRepository)
+        public GenreControllerAPI(BaseRepository<Genre> genreRepository, BaseRepository<Genre_resource> genreResourceRepository)
         {
             _genreRepository = genreRepository;
         }
 
         [HttpGet]
         [Authorize("users")]
-
         public IActionResult Get()
         {
-            return Ok(_genreRepository.FindAll(c => true));
+            return Ok(_genreRepository.FindAll(g => true));
         }
+
     }
 }

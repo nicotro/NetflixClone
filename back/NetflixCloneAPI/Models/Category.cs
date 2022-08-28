@@ -25,7 +25,7 @@ namespace NetflixCloneAPI.Models
         [Required]
         public string Name { get => name; set => name = value; }
 
-        public virtual List<Category_resource> Category_Resources { get; set; }
+        //public virtual List<Category_resource> Category_Resources { get; set; }
 
     }
 }

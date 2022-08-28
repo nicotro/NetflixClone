@@ -16,6 +16,7 @@ builder.Services.AddScoped<BaseRepository<Faq>, FaqRepository>();
 builder.Services.AddScoped<BaseRepository<User>, UserRepository>();
 builder.Services.AddScoped<BaseRepository<Category>, CategoryRepository>();
 builder.Services.AddScoped<BaseRepository<Genre>, GenreRepository>();
+builder.Services.AddScoped<BaseRepository<Genre_resource>, GenreResourceRepository>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>

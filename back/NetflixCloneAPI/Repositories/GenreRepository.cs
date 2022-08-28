@@ -11,7 +11,8 @@ namespace NetflixCloneAPI.Repositories
 
         public override bool Add(Genre entity)
         {
-            throw new NotImplementedException();
+            _dataContextService.Genres.Add(entity);
+            return Update() && entity.Id > 0;
         }
 
         public override bool Delete(Genre entity)
@@ -21,7 +22,7 @@ namespace NetflixCloneAPI.Repositories
 
         public override Genre Find(Func<Genre, bool> predicate)
         {
-            throw new NotImplementedException();
+            return _dataContextService.Genres.ToList().FirstOrDefault(g => predicate(g));
         }
 
         public override List<Genre> FindAll(Func<Genre, bool> predicate)

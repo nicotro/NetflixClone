@@ -13,7 +13,6 @@ export function UserSection({ category }) {
                 .then(res => {
                     setGenres(res.data);
                     setLoaded(true);
-                    console.log(res.data);
                 })
                 .catch(err => {
                     console.log("error", err);
@@ -22,16 +21,21 @@ export function UserSection({ category }) {
     }, [loaded]);
 
 
-
-
     return (
         <>
-            < div className="debug-white-text">
-                <p>Category = {category}</p>
-                {genres.map((g) => (
-                    <UserResourceSlider key={g.id} genreId={g.name} />)
-                )}
-            </div>
+            {loaded
+                ?
+                < div className="debug-white-text">
+                    <p>Category = {category}</p>
+                    {genres.map((g) => (
+                        <UserResourceSlider key={g.id} genreId={g.name} />)
+                    )}
+                </div>
+                :
+                < div className="debug-white-text">
+                    <p>Loading...</p>
+                </div>
+            }
         </>
     );
 }

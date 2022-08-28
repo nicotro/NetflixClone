@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetflixCloneAPI.Services;
 
@@ -10,9 +11,10 @@ using NetflixCloneAPI.Services;
 namespace NetflixCloneAPI.Migrations
 {
     [DbContext(typeof(DataContextService))]
-    partial class DataContextServiceModelSnapshot : ModelSnapshot
+    [Migration("20220828082620_GenreResources-update")]
+    partial class GenreResourcesupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,6 +40,23 @@ namespace NetflixCloneAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("category");
+                });
+
+            modelBuilder.Entity("NetflixCloneAPI.Models.Category_resource", b =>
+                {
+                    b.Property<int>("ResourceId")
+                        .HasColumnType("int")
+                        .HasColumnName("resource_id");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int")
+                        .HasColumnName("category_id");
+
+                    b.HasKey("ResourceId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("category_resource");
                 });
 
             modelBuilder.Entity("NetflixCloneAPI.Models.Faq", b =>
@@ -135,10 +154,6 @@ namespace NetflixCloneAPI.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("Category")
-                        .HasColumnType("int")
-                        .HasColumnName("category");
 
                     b.Property<string>("Infos")
                         .IsRequired()
@@ -261,6 +276,25 @@ namespace NetflixCloneAPI.Migrations
                     b.ToTable("video");
                 });
 
+            modelBuilder.Entity("NetflixCloneAPI.Models.Category_resource", b =>
+                {
+                    b.HasOne("NetflixCloneAPI.Models.Category", "category")
+                        .WithMany("Category_Resources")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NetflixCloneAPI.Models.Resource", "resource")
+                        .WithMany("Category_Resources")
+                        .HasForeignKey("ResourceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("category");
+
+                    b.Navigation("resource");
+                });
+
             modelBuilder.Entity("NetflixCloneAPI.Models.Genre_resource", b =>
                 {
                     b.HasOne("NetflixCloneAPI.Models.Genre", "genre")
@@ -313,6 +347,11 @@ namespace NetflixCloneAPI.Migrations
                     b.Navigation("resource");
                 });
 
+            modelBuilder.Entity("NetflixCloneAPI.Models.Category", b =>
+                {
+                    b.Navigation("Category_Resources");
+                });
+
             modelBuilder.Entity("NetflixCloneAPI.Models.Genre", b =>
                 {
                     b.Navigation("Genre_Resources");
@@ -320,6 +359,8 @@ namespace NetflixCloneAPI.Migrations
 
             modelBuilder.Entity("NetflixCloneAPI.Models.Resource", b =>
                 {
+                    b.Navigation("Category_Resources");
+
                     b.Navigation("Genre_Resources");
 
                     b.Navigation("Images");
