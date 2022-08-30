@@ -8,6 +8,21 @@ footer {
     padding: 25px 100px;
     color: gray;
 }
+<<<<<<< HEAD
+.liens_footer
+{
+    
+    color:grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    
+}
+
+
+=======
 
 
    
@@ -35,3 +50,4 @@ footer {
  }
     
 
+>>>>>>> b9bec252637ee6b2748dee1f792b2f4ecd120fed
