@@ -11,13 +11,15 @@ namespace NetflixCloneAPI.Services
         private BaseRepository<Image> _imageRepository;
         private BaseRepository<Video> _videoRepository;
         private BaseRepository<Genre_resource> _genreResourceRepository;
+        private BaseRepository<Genre> _genreRepository;
 
-        public ResourceService(BaseRepository<Resource> resourceRepository, BaseRepository<Genre_resource> genreResourceRepository, BaseRepository<Image> imageRepository, BaseRepository<Video> videoRepository)
+        public ResourceService(BaseRepository<Resource> resourceRepository, BaseRepository<Genre_resource> genreResourceRepository, BaseRepository<Image> imageRepository, BaseRepository<Video> videoRepository, BaseRepository<Genre> genreRepository)
         {
             _resourceRepository = resourceRepository;
             _genreResourceRepository = genreResourceRepository;
             _imageRepository = imageRepository;
             _videoRepository = videoRepository;
+            _genreRepository = genreRepository;
         }
 
         public bool CreateResource(ResourceDTO newResourceDTO)
@@ -91,13 +93,20 @@ namespace NetflixCloneAPI.Services
         }
 
 
-        public List<int> GetGenresByCategorie(int categorieId)
+        public List<Genre> GetGenresByCategorie(int categorieId)
         {
-
-
-            List<Genre_resource> genre_Resources = _genreResourceRepository.FindAll(gr => gr.ResourceId == categorieId); // n'importe quoi !
-
-            throw new NotImplementedException();
+            List<Genre_resource> genre_resources = _genreResourceRepository.FindByCategory(categorieId);
+            List<Genre> genres = new List<Genre>();
+            Genre genre = new Genre(); 
+            foreach (Genre_resource gr in genre_resources)
+            {
+                genre = _genreRepository.Find(g=>g.Id==gr.GenreId);
+                if (!genres.Contains(genre))
+                {
+                    genres.Add(genre);
+                }
+            }
+            return genres;
         }
 
 

@@ -38,5 +38,14 @@ namespace NetflixCloneAPI.Repositories
                 .Include(r => r.Videos)
                 .ToList().Where(a => predicate(a)).ToList();
         }
+
+        public override List<Resource> FindByCategory(int category)
+        {
+            return _dataContextService.Resources
+                .Include(r => r.Genre_Resources)
+                .Include(r => r.Images)
+                .Include(r => r.Videos)
+                .Where(r => r.Category==category).ToList();
+        }
     }
 }

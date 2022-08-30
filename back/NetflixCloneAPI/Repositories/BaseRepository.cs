@@ -1,4 +1,5 @@
-﻿using NetflixCloneAPI.Services;
+﻿using NetflixCloneAPI.Models;
+using NetflixCloneAPI.Services;
 
 namespace NetflixCloneAPI.Repositories
 {
@@ -16,6 +17,8 @@ namespace NetflixCloneAPI.Repositories
         public abstract T Find(Func<T, bool> predicate);
 
         public abstract List<T> FindAll(Func<T, bool> predicate);
+
+        public abstract List<T> FindByCategory(int category);
 
         public bool Update()
         {

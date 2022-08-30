@@ -1,4 +1,5 @@
-﻿using NetflixCloneAPI.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using NetflixCloneAPI.Models;
 using NetflixCloneAPI.Services;
 
 namespace NetflixCloneAPI.Repositories
@@ -29,5 +30,13 @@ namespace NetflixCloneAPI.Repositories
         {
             return _dataContextService.Genre_resources.ToList().Where(g => predicate(g)).ToList();
         }
+
+        public override List<Genre_resource> FindByCategory(int category)
+        {
+            return _dataContextService.Genre_resources
+                            .Include(gr=>gr.resource)
+                            .Where(g=>g.resource.Category==category).ToList();
+        }
+
     }
 }

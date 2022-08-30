@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NetflixCloneAPI.Interfaces;
 using NetflixCloneAPI.Models;
 using NetflixCloneAPI.Repositories;
+using static NetflixCloneAPI.Interfaces.Iresource;
 
 namespace NetflixCloneAPI.Controllers
 {
@@ -14,10 +16,13 @@ namespace NetflixCloneAPI.Controllers
     public class GenreControllerAPI : ControllerBase
     {
         private BaseRepository<Genre> _genreRepository;
+        private IResource _resourceService;
 
-        public GenreControllerAPI(BaseRepository<Genre> genreRepository, BaseRepository<Genre_resource> genreResourceRepository)
+
+        public GenreControllerAPI(BaseRepository<Genre> genreRepository, IResource resourceService)
         {
             _genreRepository = genreRepository;
+            _resourceService = resourceService;
         }
 
         [HttpGet]
@@ -31,7 +36,7 @@ namespace NetflixCloneAPI.Controllers
         [Authorize("users")]
         public IActionResult GetGenreByCategorie(int id)
         {
-            return Ok(_genreRepository.FindAll(g => true));
+            return Ok(_resourceService.GetGenresByCategorie(id));
         }
 
     }

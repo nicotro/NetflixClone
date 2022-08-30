@@ -9,7 +9,7 @@ namespace NetflixCloneAPI.Interfaces
             public bool CreateResource(ResourceDTO newResourceDTO);
             public ResourceDTO GetResourceById(int id);
             public List<ResourceDTO> GetResourcesByCategorie(int categoryId);
-            public List<int> GetGenresByCategorie(int categorieId);
+            public List<Genre> GetGenresByCategorie(int categorieId);
             public List<ResourceDTO> GetResourcesByGenre(int categoryId, int genreId);
         }
 
