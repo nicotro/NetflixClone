@@ -12,7 +12,8 @@ namespace NetflixCloneAPI.Repositories
 
         public override bool Add(Resource entity)
         {
-            throw new NotImplementedException();
+            _dataContextService.Resources.Add(entity);
+            return Update() && entity.Id > 0;
         }
 
         public override bool Delete(Resource entity)
@@ -23,6 +24,7 @@ namespace NetflixCloneAPI.Repositories
         public override Resource Find(Func<Resource, bool> predicate)
         {
             return _dataContextService.Resources
+                .Include(r=>r.Genre_Resources)
                 .Include(r => r.Images)
                 .Include(r => r.Videos)
                 .ToList().FirstOrDefault(a => predicate(a));
@@ -31,6 +33,7 @@ namespace NetflixCloneAPI.Repositories
         public override List<Resource> FindAll(Func<Resource, bool> predicate)
         {
             return _dataContextService.Resources
+                .Include(r=>r.Genre_Resources)
                 .Include(r => r.Images)
                 .Include(r => r.Videos)
                 .ToList().Where(a => predicate(a)).ToList();

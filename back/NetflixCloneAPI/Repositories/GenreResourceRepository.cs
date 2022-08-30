@@ -11,7 +11,8 @@ namespace NetflixCloneAPI.Repositories
 
         public override bool Add(Genre_resource entity)
         {
-            throw new NotImplementedException();
+            _dataContextService.Genre_resources.Add(entity);
+            return Update() && entity.Id > 0;
         }
 
         public override bool Delete(Genre_resource entity)
