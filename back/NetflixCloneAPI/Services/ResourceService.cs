@@ -106,6 +106,7 @@ namespace NetflixCloneAPI.Services
                     genres.Add(genre);
                 }
             }
+            genres.Sort((x, y) => x.Id - y.Id);
             return genres;
         }
 
