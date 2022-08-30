@@ -7,28 +7,16 @@
 
     
 }
-
-.row a
+.liens_footer
 {
-    color: rgba(255, 255, 255, 0.305);
-    margin: 10px;
-    align-items: center;
-  
-
-  
-   
-}
-il
-{
-   
-    flex-direction: row;
-    align-items: center;
-    column-count: 3;
     
-   
+    color:grey;
     display: flex;
-    
-    
+    align-items: center;
+    justify-content: center;
     
 
+    
 }
+
+
