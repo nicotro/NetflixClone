@@ -1,6 +1,6 @@
 .nav-header {
     position: relative;
-    z-index: 1;
+    z-index: 5;
     max-width: 1850px;
     width: 100%;
     display: flex;
@@ -27,6 +27,10 @@
     padding: 8px 17px;
     text-decoration: none;
     cursor: pointer;
+}
+
+.nav-header-button:hover {
+    background: #f40612;
 }
 
 @media (max-width: 550px) {

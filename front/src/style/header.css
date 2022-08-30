@@ -9,11 +9,11 @@
     overflow: hidden;
 }
 
+
 .bg-fade {
     position: absolute;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 1) 100%), radial-gradient(50% 100%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 1) 100%);
     z-index: 1;
-    /* background: rgba(0,0,0,.5); */
     top: 0;
     left: 0;
     right: 0;

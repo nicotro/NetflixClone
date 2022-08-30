@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "question": "Why am I seeing this?",
+        "answer": "It seems something went wrong with the data source, either a network or an API related error. Make sure the API is available, check the Cors for both the Front and the Back, and verify the content of the faq table on the SQL server."
+    },
+    {
+        "id": 2,
+        "question": "Where are the real FAQs?",
+        "answer": "The FAQ data is stored in a table on the sql server, made available through the API. The currently displayed FAQ data is a placeholder stored in a local Json file. To address this issue, see the answer to the first question."
+    },
+    {
+        "id": 3,
+        "question": "Will I be able to log in?",
+        "answer": "As this seems to be a network related issue, the login process will most certainly not work."
+    }
+]

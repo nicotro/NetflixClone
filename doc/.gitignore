@@ -1,0 +1,6 @@
+## Ignore MS Office temporary files
+##
+
+# User-specific files
+~$*
+

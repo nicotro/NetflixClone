@@ -1,12 +1,14 @@
-.call
-{
-    
-    color:  rgba(255, 255, 255, 0.332);
-    text-align: center;
+footer {
+    background-color:black;
+  
     
 
-    
 }
+.titre {
+    padding: 25px 100px;
+    color: gray;
+}
+<<<<<<< HEAD
 .liens_footer
 {
     
@@ -20,3 +22,32 @@
 }
 
 
+=======
+
+
+   
+
+ .row 
+    {
+        
+       
+       margin: 10px;
+       display:flex;
+       
+      
+      justify-content:space-around;
+        
+        
+        
+        
+       
+    }
+
+ a
+ {
+     color:gray;
+     text-align:center
+ }
+    
+
+>>>>>>> b9bec252637ee6b2748dee1f792b2f4ecd120fed

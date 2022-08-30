@@ -1,15 +1,19 @@
 import "../style/footer.css"
 
 export function Footer() {
+<<<<<<< HEAD
     return(
         
     <div >
         
         <p className="call">Question? Call(+33)0805-543-064</p>
+=======
+    return (
+>>>>>>> b9bec252637ee6b2748dee1f792b2f4ecd120fed
 
-    
-    
+        <footer>
 
+<<<<<<< HEAD
                <ul className="liens_footer"> 
                  <il style={{columns:4 , row:4}}>
                 <a href="#">FAQ</a>
@@ -43,21 +47,70 @@ export function Footer() {
                 <a href="#">Legal Guarantee</a>
                 </il>
                 </ul>
+=======
+            <h5 className="titre">Des questions ? Appelez le </h5>
+
+            <div className="rows">
+                <div class="row">
+                    <a>FAQ</a>
+                    <a>Help Center</a>
+                    <a>Account</a>
+                    <a>Media Center</a>
+                   
+                </div>
+
+                <div class="row">
+                    <a>Investor Relations</a>
+                    <a>Jobs </a>
+                    <a>Redeem Gift Cards</a>
+                    <a>Buy Gift Cards</a>
+                   
+                </div>
+
+                <div class="row">
+                    <a>Ways to Watch</a>
+                    <a>Terms of Use</a>
+                    <a>Privacy</a>
+                    <a>Cookie Preferences</a>
+                 
+                </div>
+
+                <div class="row">
+                    <a>Corporate Information</a>
+                    <a>Contact Us</a>
+                    <a>Speed Test</a>
+                    <a>Legal Guarantee</a>
+>>>>>>> b9bec252637ee6b2748dee1f792b2f4ecd120fed
                
+                </div>
+                <div class="row">
+                    <a>Legal Notices</a>
+                    <a>Only on Netflix</a>
+                   
 
-         
+                </div>
 
-                
-
-   
-
+                <p className="titre">Netflix, France</p>
+            </div>
 
 
 
+        </footer>
 
 
-   
-        
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     )
 }

@@ -9,7 +9,7 @@ export function Navbar() {
         <img src={logoImage} alt="Netflix logo" />
       </Link>
       <Link className="nav-header-button" to="/login">
-        Log in
+        Sign in
       </Link>
     </div>
   );

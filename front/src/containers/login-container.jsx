@@ -1,11 +1,13 @@
-import { Header } from "../components/header";
-import "./../style/login-container.css";
+import { AuthHeader } from "../components/auth-header";
+import { Footer } from "../components/footer";
+import { LoginSection } from "../components/login-section";
 
 export function LoginContainer() {
   return (
-    <>
-      <Header />
-      <h1 className="h1-login">Login Container</h1>
-    </>
+    <div>
+      <AuthHeader />
+      <LoginSection />
+      <Footer />
+    </div>
   );
 }

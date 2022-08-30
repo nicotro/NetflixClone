@@ -1,22 +1,11 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
-
 @font-face {
   font-family: "Netflix_Bold";
-  /*Can be any text*/
   src: local("NetflixSans_W_Md"),
     url("./../fonts/NetflixSans_W_Md.woff2") format("woff");
 }
 
 @font-face {
   font-family: "Netflix_Medium";
-  /*Can be any text*/
   src: local("NetflixSans_W_Rg"),
     url("./../fonts/NetflixSans_W_Rg.woff2") format("woff");
 }

@@ -7,11 +7,81 @@
     color: #fff;
 }
 
+.home-section-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-section-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.home-section-row-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.home-section-col-large {
+    padding: 70px 5%;
+    margin: auto;
+    max-width: 1200px;
+    width: 60%;
+}
+
+.home-section-col-small {
+    padding: initial;
+    margin: auto;
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+    font-size: 0;
+}
+
 .home-section-title {
     font-size: 3.125rem;
     line-height: 1.1;
     margin-bottom: 0.5rem;
-    text-align: center;
+}
+
+.home-section-col-img {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.home-section-col-img img {
+    border: 0;
+    height: auto;
+    max-width: 100%;
+}
+
+.home-section-col-video {
+    position: absolute;
+    z-index: 1;
+    /* get position & scale from JSON file/data animationPos property
+    width: 100%;
+    height: 100%;
+    max-height: 54%;
+    max-width: 62%;
+    top: 34%;
+    left: 49%;*/
+    transform: translate(-50%, -50%);
+}
+
+.home-section-col-video video {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.home-section-text {
+    font-size: 1.625rem;
+    font-weight: normal;
+    line-height: normal;
 }
 
 .home-section-faq {
@@ -22,8 +92,60 @@
     max-width: 815px;
 }
 
+.home-section-title-faq {
+    text-align: center;
+}
+
+/*---- screensize dependant settings ----*/
+@media (max-width: 950px) {
+
+    .home-section-row,
+    .home-section-row-reverse {
+        flex-direction: column;
+    }
+
+    .home-section-col-large {
+        padding: initial;
+        width: 75%;
+    }
+
+    .home-section-title {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .home-section-text {
+        font-size: 1.25rem;
+        font-weight: 400;
+        text-align: center;
+    }
+}
+
 @media (max-width: 550px) {
     .home-section {
         padding: 70px 45px;
+    }
+
+    .home-section-col-small,
+    .home-section-col-large {
+        padding: initial;
+        /* width: 100%; */
+    }
+
+    .home-section-text {
+        font-size: 1.2rem;
+        text-align: center;
+        padding-right: initial;
+    }
+
+    .home-section-title {
+        font-size: 1.5rem;
+        text-align: center;
+        padding-right: initial;
+    }
+
+    .home-section-faq {
+        width: 100%;
+        padding: initial;
     }
 }
