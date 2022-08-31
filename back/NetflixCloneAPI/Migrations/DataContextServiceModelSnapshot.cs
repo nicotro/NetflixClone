@@ -84,17 +84,25 @@ namespace NetflixCloneAPI.Migrations
 
             modelBuilder.Entity("NetflixCloneAPI.Models.Genre_resource", b =>
                 {
-                    b.Property<int>("ResourceId")
-                        .HasColumnType("int")
-                        .HasColumnName("resource_id");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("GenreId")
                         .HasColumnType("int")
                         .HasColumnName("genre_id");
 
-                    b.HasKey("ResourceId");
+                    b.Property<int>("ResourceId")
+                        .HasColumnType("int")
+                        .HasColumnName("resource_id");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("GenreId");
+
+                    b.HasIndex("ResourceId");
 
                     b.ToTable("genre_resource");
                 });

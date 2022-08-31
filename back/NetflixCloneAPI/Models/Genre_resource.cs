@@ -11,6 +11,8 @@ namespace NetflixCloneAPI.Models
         private int genreId;
 
         [Key]
+        public int Id { get; set; }
+
         [Column("resource_id")]
         public int ResourceId { get => resourceId; set => resourceId = value; }
 

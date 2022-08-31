@@ -4,7 +4,7 @@
 
 namespace NetflixCloneAPI.Migrations
 {
-    public partial class GenreResourcesupdate : Migration
+    public partial class GenreResourceUpdateKey : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

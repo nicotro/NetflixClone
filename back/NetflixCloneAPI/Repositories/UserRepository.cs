@@ -33,5 +33,11 @@ namespace NetflixCloneAPI.Repositories
         {
             return _dataContextService.Users.ToList().Where(u => predicate(u)).ToList();
         }
+
+        /*--- Useless ! ---*/
+        public override List<User> FindByCategory(int category)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

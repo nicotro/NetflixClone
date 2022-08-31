@@ -5,6 +5,7 @@ using NetflixCloneAPI.Repositories;
 using NetflixCloneAPI.Services;
 using System.Text;
 using static NetflixCloneAPI.Interfaces.Ilogin;
+using static NetflixCloneAPI.Interfaces.Iresource;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,11 +13,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<DataContextService>();
 builder.Services.AddScoped<ILogin, LoginService>();
+builder.Services.AddScoped<IResource, ResourceService>();
 builder.Services.AddScoped<BaseRepository<Faq>, FaqRepository>();
 builder.Services.AddScoped<BaseRepository<User>, UserRepository>();
 builder.Services.AddScoped<BaseRepository<Category>, CategoryRepository>();
+builder.Services.AddScoped<BaseRepository<Resource>, ResourceRepository>();
 builder.Services.AddScoped<BaseRepository<Genre>, GenreRepository>();
 builder.Services.AddScoped<BaseRepository<Genre_resource>, GenreResourceRepository>();
+builder.Services.AddScoped<BaseRepository<Image>, ImageRepository>();
+builder.Services.AddScoped<BaseRepository<Video>, VideoRepository>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
