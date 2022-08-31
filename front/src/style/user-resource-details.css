@@ -21,7 +21,7 @@
             rgba(255, 255, 255, 0) 0%,
             rgba(255, 255, 255, 0) 75%,
             rgb(0, 0, 0) 100%),
-            linear-gradient(180deg,
+        linear-gradient(180deg,
             rgba(255, 255, 255, 0) 0%,
             rgba(255, 255, 255, 0) 90%,
             rgb(0, 0, 0) 100%);
@@ -46,9 +46,9 @@
 .detail-right {
     width: 75%;
     background-image: linear-gradient(90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 60%,
-    rgb(0, 0, 0) 100%);
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0) 60%,
+            rgb(0, 0, 0) 100%);
 
 }
 
@@ -64,6 +64,28 @@
 
 .detail-content-container h1 {
     font-size: 1.5rem !important;
+}
+
+.detail-content-container p {
+    padding: 0 !important;
+}
+
+.detail-content-button {
+    background-color: #e50914;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    border: 0;
+    font-size: 1em;
+    border-radius: 3px;
+    padding: 8px 16px;
+    margin: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.detail-content-button:hover {
+    background: #f40612;
 }
 
 .detail-hide {

@@ -9,7 +9,8 @@ export function UserResourceDetails({ resource }) {
             </div>
             <div className="detail-content-container">
                 <h1>{resource.name}</h1>
-                {resource.infos}
+                <p>{resource.infos}</p>
+                <button className="detail-content-button">Play</button>
             </div>
         </div>
     );

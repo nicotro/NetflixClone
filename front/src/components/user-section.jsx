@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import { getGenres } from "../services/db-access";
 import { UserResourceSlider } from "./user-resource-slider";
 import "./../style/user-section.css";
+import { useNavigate } from "react-router-dom";
 
 export function UserSection({ category }) {
     const [genres, setGenres] = useState(category);
     const [loaded, setLoaded] = useState(false);
-    const [oldCategory, setOldCategory]=useState(category);
-    
+    const [oldCategory, setOldCategory] = useState(category);
+    const navigate = useNavigate();
+
     useEffect(() => {
         const genreURL = `/genre/${category}`;
-        if (loaded === false || oldCategory!==category) {
+        if (loaded === false || oldCategory !== category) {
             getGenres(genreURL)
                 .then(res => {
                     setGenres(res.data);
@@ -18,10 +20,13 @@ export function UserSection({ category }) {
                     setOldCategory(category);
                 })
                 .catch(err => {
-                    console.log("error", err);
+                    if (err.response.status === 401) {
+                        navigate('/login')
+                    }
+                    console.log("http error", err.response);
                 })
         }
-    }, [loaded,category]);
+    }, [loaded, category]);
 
     return (
         <>
