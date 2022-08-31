@@ -6,10 +6,12 @@
     margin-bottom: 0;
     padding: 50px 5%;
     position: relative;
+    letter-spacing: 0 !important;
 }
 
 .FooterWrapper {
  margin-top:0;
+ 
 
 }
 
@@ -52,7 +54,7 @@
 
 .Footerlinkitem {
     box-sizing: border-box;
-    display: inline-block;
+    display: inline-flex;
     margin-bottom: 16px;
     min-width: 100px;
     padding: 0 12px 0 0;
@@ -72,20 +74,29 @@
     
     
 }
-@media (max-width: 950px) {
-    .PMBP {
-        padding: 70px 45px;
+
+@media (min-width: 550px ) and (max-width:740px){
+
+   
+
+    .Footerlinkitem {
+        
+        width:5%;
+        padding:5px;
+        width:33%;
     }
+
 
 
 
 }
 
-@media (max-widht: 550px) {
-    .PMBP {
-        padding: 70px 45px;
-    }
+
+
+  
+    
+    
 
 
 
-}
+
