@@ -1,6 +1,7 @@
 # NetflixClone
 
-m2i .NET FullStack developper training final project, developped in Js and C#.
+m2i .NET FullStack developper training final project, developped in Js and C#.  
+Project follow-up on [trello](https://trello.com/b/TuEfsah3/netflixclone)
 
 ## Installation
 
