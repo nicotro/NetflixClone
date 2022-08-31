@@ -59,7 +59,29 @@ namespace NetflixCloneAPI.Services
 
         public ResourceDTO GetResourceById(int id)
         {
-            throw new NotImplementedException();
+            ResourceDTO resourcesDTO = null;
+            Resource resource = _resourceRepository.Find(r => r.Id == id);
+            if (resource != null)
+            {
+                List<Genre_resource> genre_Resources = _genreResourceRepository.FindAll(gr => gr.ResourceId == resource.Id);
+                List<int> genres = new List<int>();
+                foreach (Genre_resource gr in genre_Resources)
+                {
+                    genres.Add(gr.GenreId);
+                }
+                resourcesDTO = new ResourceDTO
+                    (
+                        resource.Id,
+                        resource.Category,
+                        resource.Name,
+                        resource.Infos,
+                        resource.Season,
+                        genres,
+                        _imageRepository.FindAll(i => i.ResourceId == resource.Id),
+                        _videoRepository.FindAll(v => v.ResourceId == resource.Id)
+                    );
+            }
+            return resourcesDTO;
         }
 
         public List<ResourceDTO> GetResourcesByCategory(int categoryId)
@@ -144,7 +166,33 @@ namespace NetflixCloneAPI.Services
 
         public List<ResourceDTO> GetResourcesByGenre(int categoryId, int genreId)
         {
-            throw new NotImplementedException();
+            List<ResourceDTO> listResourceDto = null;
+            List<Genre_resource> listGR = _genreResourceRepository.FindByCategory(categoryId);
+            if (listGR != null)
+            {
+                listResourceDto=new List<ResourceDTO>();
+                foreach (Genre_resource gr in listGR)
+                {
+                    if (gr.GenreId == genreId)
+                    {
+                        listResourceDto.Add(GetResourceById(gr.ResourceId));
+                    }
+                }
+            }
+
+            //List<ResourceDTO> listResourceDto = GetResourcesByCategory(categoryId);
+            //if (listResourceDto != null)
+            //{
+            //    foreach (ResourceDTO rDto in listResourceDto)
+            //    {
+            //        if (!rDto.GenresId.Contains(genreId))
+            //        {
+            //            listResourceDto.Remove(rDto);
+            //        }
+            //    }
+            //}
+
+            return listResourceDto;
         }
     }
 }

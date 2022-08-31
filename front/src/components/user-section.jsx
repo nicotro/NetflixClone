@@ -29,7 +29,7 @@ export function UserSection({ category }) {
                 ?
                 < div className="usersection-genre">
                     {genres.map((g) => (
-                        <UserResourceSlider key={g.id} genreId={g.id} genreName={g.name} />)
+                        <UserResourceSlider key={g.id} category={category} genre={g} />)
                     )}
                 </div>
                 :

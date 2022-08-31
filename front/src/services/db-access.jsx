@@ -29,3 +29,6 @@ export const getGenres = async (genreURL) => {
     return axiosResource.get(genreURL, { headers: { "Authorization": "Bearer " + GetTokenFromStorage() } })
 }
 
+export const getResources = async (resourcesURL) => {
+    return axiosResource.get(resourcesURL, { headers: { "Authorization": "Bearer " + GetTokenFromStorage() } })
+}

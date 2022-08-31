@@ -56,6 +56,15 @@ namespace NetflixCloneAPI.Controllers
         }
 
 
+        // Get all resources from one category & one genre
+        [HttpGet("rg/{categoryId}/{genreId}")]
+        [Authorize("users")]
+        public IActionResult GetByGenre(int categoryId, int genreId)
+        {
+            return Ok(_resourceService.GetResourcesByGenre(categoryId, genreId));
+        }
+
+
         [HttpPost]
         [Authorize("admin")]
         public IActionResult Post(ResourceDTO newResourceDTO)
