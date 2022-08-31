@@ -31,12 +31,30 @@ namespace NetflixCloneAPI.Controllers
             return Ok(_resourceRepository.FindAll(g => true));
         }
 
-        [HttpGet("{id}")]
+        // Get all resources from one category
+        [HttpGet("{categoryId}")]
         [Authorize("users")]
-        public IActionResult Get(int id)
+        public IActionResult Get(int categoryId)
         {
-            return Ok(_resourceService.GetResourcesByCategorie(id));
+            return Ok(_resourceService.GetResourcesByCategory(categoryId));
         }
+
+        // Get one resource from one category
+        [HttpGet("{categoryId}/{id}")]
+        [Authorize("users")]
+        public IActionResult Get(int categoryId, int id)
+        {
+            ResourceDTO resourceDTO = _resourceService.GetSingleResourceByCategory(categoryId, id);
+            if (resourceDTO != null)
+            {
+                return Ok(resourceDTO);
+            }
+            else
+            {
+                return BadRequest("No resource found!");
+            }
+        }
+
 
         [HttpPost]
         [Authorize("admin")]
