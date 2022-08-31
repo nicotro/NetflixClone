@@ -2,56 +2,124 @@ import "../style/footer.css"
 
 export function Footer() {
     return (
+        <div className="PMBP">
 
-        <footer>
+            <div className="FooterWrapper">
 
-            <h5 className="titre">Des questions ? Appelez le </h5>
-
-            <div className="rows">
-                <div class="row">
-                    <a>FAQ</a>
-                    <a>Help Center</a>
-                    <a>Account</a>
-                    <a>Media Center</a>
-                   
-                </div>
-
-                <div class="row">
-                    <a>Investor Relations</a>
-                    <a>Jobs </a>
-                    <a>Redeem Gift Cards</a>
-                    <a>Buy Gift Cards</a>
-                   
-                </div>
-
-                <div class="row">
-                    <a>Ways to Watch</a>
-                    <a>Terms of Use</a>
-                    <a>Privacy</a>
-                    <a>Cookie Preferences</a>
-                 
-                </div>
-
-                <div class="row">
-                    <a>Corporate Information</a>
-                    <a>Contact Us</a>
-                    <a>Speed Test</a>
-                    <a>Legal Guarantee</a>
                
-                </div>
-                <div class="row">
-                    <a>Legal Notices</a>
-                    <a>Only on Netflix</a>
-                   
+
+                <div className="site-footer">
+
+                    <p className="footer_top"> Questions? Call (+33) 0805-543-064</p>
+
+                    <ul className="footer_link_structural">
+
+
+                        <li className="Footerlinkitem">
+                            <a className="footerlink" href="https://help.netflix.com/support/412"  ><span>FAQ</span></a>
+                        </li>
+
+                        <li className="Footerlinkitem" >
+                            <a className="footerlink" href="http://ir.netflix.com/" ><span> Investor Relations</span></a>
+                        </li>
+
+                        <li className="Footerlinkitem">
+                            <a className="footerlink" href="/watch"><span> Ways to Watch </span></a>
+                        </li>
+
+                        <li className="Footerlinkitem">
+                            <a className="footerlink" href="https://help.netflix.com/legal/corpinfo"><span> Corporate Information </span></a>
+                        </li>
+
+                        <li className="Footerlinkitem" >
+                            <a className="footerlink" href="https://netflix.com/legal/guarantee"><span > Legal Notices </span></a>
+                        </li>
+
+                        <li className="Footerlinkitem">
+                            <a className="footerlink" href="https://help.netflix.com"  ><span > Help Center </span></a>
+
+                        </li>
+
+                        <li className="Footerlinkitem">
+                            <a className="footerlink" href="https://jobs.netflix.com/jobs" ><span> Jobs </span></a>
+                        </li>
+
+                        <li className="Footerlinkitem">
+                            <a className="footerlink" href="https://help.netflix.com/legal/termsofuse" ><span > Terms of Use </span></a>
+                        </li>
+
+                        <li className="Footerlinkitem">
+                            <a className="footerlink" href="https://help.netflix.com/contactus"><span> Contact Us </span></a>
+
+                        </li>
+
+                        <li className="Footerlinkitem">
+                            <a className="footerlink" href="https://www.netflix.com/fr-en/browse/genre/839338" ><span  > Only on Netflix </span></a>
+
+                        </li>
+
+                        <li className="Footerlinkitem" >
+                            <a className="footerlink" href="/youraccount"  ><span > Account </span></a>
+
+
+                        </li>
+
+                        <li className="Footerlinkitem" >
+                            <a className="footerlink" href="/gift-cards"  ><span > Redeem Gift Cards </span></a>
+
+                        </li>
+
+                        <li className="Footerlinkitem" >
+                            <a className="footerlink" href="https://help.netflix.com/legal/privacy"  ><span  > Privacy </span></a>
+
+                        </li>
+
+                        <li className="Footerlinkitem" >
+                            <a className="footerlink" href="https://fast.com"  ><span > Speed Test </span></a>
+
+                        </li>
+
+                        <li className="Footerlinkitem" >
+                            <a className="footerlink" data-uia="footerlink" href="https://media.netflix.com/"  ><span > Media Center </span></a>
+
+                        </li>
+
+                        <li className="Footerlinkitem" >
+                            <a className="footerlink" href="/gift-cards" ><span   > Buy Gift Cards </span></a>
+
+                        </li>
+
+                        <li className="Footerlinkitem" >
+                            <a className="footerlink" href="#"  ><span  > Cookie Preferences </span></a>
+
+                        </li>
+
+                        <li className="Footerlinkitem" >
+                            <a className="footerlink" href="https://netflix.com/legal/guarantee"  ><span> Legal Guarantees </span></a>
+
+                        </li>
+
+
+
+
+                    </ul>
+
+
+
 
                 </div>
 
-                <p className="titre">Netflix, France</p>
+                <p className="footer_country" >Netflix English</p>
+
+
+
             </div>
+          
 
 
+        </div>
 
-        </footer>
+       
 
 
 
