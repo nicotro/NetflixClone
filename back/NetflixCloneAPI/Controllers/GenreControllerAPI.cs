@@ -34,9 +34,9 @@ namespace NetflixCloneAPI.Controllers
 
         [HttpGet("{id}")]
         [Authorize("users")]
-        public IActionResult GetGenreByCategorie(int id)
+        public IActionResult GetGenreByCategory(int id)
         {
-            return Ok(_resourceService.GetGenresByCategorie(id));
+            return Ok(_resourceService.GetGenresByCategory(id));
         }
 
     }

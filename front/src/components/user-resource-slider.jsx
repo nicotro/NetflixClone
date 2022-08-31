@@ -3,7 +3,7 @@ import { UserResourceDetails } from "./user-resource-details";
 import { UserResourceItem } from "./user-resource-item";
 import "../style/user-resource-slider.css"
 
-export const UserResourceSlider = ({ genreId }) => {
+export const UserResourceSlider = ({genreId, genreName }) => {
     const [detailId, setDetailId] = useState(0);
     const [clicked, setClicked] = useState(0);
     const [active, setActive] = useState(false);
@@ -20,8 +20,8 @@ export const UserResourceSlider = ({ genreId }) => {
 
     return (
         <>
-            <p>{genreId}</p>
-            <div class="genre-container">
+            <p>{genreName}</p>
+            <div className="genre-container">
                 <UserResourceItem itemId="1" click={handleItemClick} />
                 <UserResourceItem itemId="2" click={handleItemClick} />
                 <UserResourceItem itemId="3" click={handleItemClick} />

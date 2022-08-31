@@ -62,7 +62,7 @@ namespace NetflixCloneAPI.Services
             throw new NotImplementedException();
         }
 
-        public List<ResourceDTO> GetResourcesByCategorie(int categoryId)
+        public List<ResourceDTO> GetResourcesByCategory(int categoryId)
         {
             List<ResourceDTO> resourcesDTO = new List<ResourceDTO>();
             List<Resource> resources = _resourceRepository.FindAll(r => r.Category == categoryId);
@@ -93,14 +93,44 @@ namespace NetflixCloneAPI.Services
         }
 
 
-        public List<Genre> GetGenresByCategorie(int categorieId)
+        public ResourceDTO GetSingleResourceByCategory(int categoryId, int resourceId)
         {
-            List<Genre_resource> genre_resources = _genreResourceRepository.FindByCategory(categorieId);
+            ResourceDTO resourceDto = null;
+            Resource resource = _resourceRepository.Find(r => r.Category == categoryId && r.Id == resourceId);
+            if (resource != null)
+            {
+
+                List<Genre_resource> genre_Resource = _genreResourceRepository.FindAll(gr => gr.ResourceId == resourceId);
+                List<int> genreIds = new List<int>();
+                foreach (Genre_resource gr in genre_Resource)
+                {
+                    genreIds.Add(gr.GenreId);
+                }
+
+                resourceDto = new ResourceDTO
+                    (
+                        resource.Id,
+                        resource.Category,
+                        resource.Name,
+                        resource.Infos,
+                        resource.Season,
+                        // tmp
+                        genreIds,
+                        _imageRepository.FindAll(i => i.ResourceId == resource.Id),
+                        _videoRepository.FindAll(v => v.ResourceId == resource.Id)
+                    );
+            }
+            return resourceDto;
+        }
+
+        public List<Genre> GetGenresByCategory(int categoryId)
+        {
+            List<Genre_resource> genre_resources = _genreResourceRepository.FindByCategory(categoryId);
             List<Genre> genres = new List<Genre>();
-            Genre genre = new Genre(); 
+            Genre genre = new Genre();
             foreach (Genre_resource gr in genre_resources)
             {
-                genre = _genreRepository.Find(g=>g.Id==gr.GenreId);
+                genre = _genreRepository.Find(g => g.Id == gr.GenreId);
                 if (!genres.Contains(genre))
                 {
                     genres.Add(genre);
@@ -109,6 +139,7 @@ namespace NetflixCloneAPI.Services
             genres.Sort((x, y) => x.Id - y.Id);
             return genres;
         }
+
 
 
         public List<ResourceDTO> GetResourcesByGenre(int categoryId, int genreId)
