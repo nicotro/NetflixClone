@@ -1,8 +1,7 @@
 import { ReactComponent as Arrow } from "./../assets/chevron.svg"
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./../style/register-start.css";
-import { useEffect } from "react";
-import { useState } from "react";
 
 export function RegisterStart() {
   const [errorMessage, setErrorMessage] = useState("");

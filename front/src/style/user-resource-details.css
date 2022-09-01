@@ -88,6 +88,14 @@
     background: #f40612;
 }
 
+.detail-content-play{
+    fill: #fff;
+    width: 1.1em;
+    height: 1.1em;
+    margin: 0 0.5em 0 0;
+    vertical-align: top;
+}
+
 .detail-hide {
     display: none;
 }

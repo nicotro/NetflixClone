@@ -5,6 +5,7 @@ import { getResources } from "../services/db-access";
 import { useNavigate } from "react-router-dom";
 import "../style/user-resource-slider.css"
 
+
 export const UserResourceSlider = ({ category, genre }) => {
     const [detailId, setDetailId] = useState(0);
     const [clicked, setClicked] = useState(0);
@@ -49,11 +50,15 @@ export const UserResourceSlider = ({ category, genre }) => {
                 ?
                 <>
                     <div className="genre-container">
-                        <button className="arrows">‹</button>
-                            {resources.map((r) => (
-                                (r.genresId.includes(genre.id)) && <UserResourceItem key={r.id} item={r} click={handleItemClick} />)
-                            )}
-                        <button className="arrows">›</button>
+                        <button className="arrows">
+                            ‹
+                        </button>
+                        {resources.map((r) => (
+                            (r.genresId.includes(genre.id)) && <UserResourceItem key={r.id} item={r} click={handleItemClick} />)
+                        )}
+                        <button className="arrows">
+                            ›
+                        </button>
                     </div>
                     {active
                         ?
