@@ -21,8 +21,6 @@ export function UserContainer() {
   const categoryURL = "/category";
   let userLoggedIn = false;
   useEffect(() => {
-    //console.log("useEffect in");
-    //console.log(firstName, role, loggedIn);
     if (loaded === false) {
       isLoggedAPI(loggedURL)
         .then(res => {
@@ -60,11 +58,10 @@ export function UserContainer() {
           }
         </div>
         :
-        < p className="Loading-white">
+        < div className="Loading-white">
           <LoadingSpinner />
           Loading
-        </p>
-
+        </div>
       }
     </>
   )

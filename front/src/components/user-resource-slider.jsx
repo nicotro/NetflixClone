@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { UserResourceDetails } from "./user-resource-details";
 import { UserResourceItem } from "./user-resource-item";
 import { getResources } from "../services/db-access";
 import { useNavigate } from "react-router-dom";
 import "../style/user-resource-slider.css"
-
 
 export const UserResourceSlider = ({ category, genre }) => {
     const [detailId, setDetailId] = useState(0);
@@ -15,6 +14,8 @@ export const UserResourceSlider = ({ category, genre }) => {
     const [oldCategory, setOldCategory] = useState(category);
     const navigate = useNavigate();
 
+    const activeRef = useRef() // add a "global" class to display only one detail panel
+
     useEffect(() => {
         const resourcesURL = `/resource/rg/${category}/${genre.id}`;
         if (loaded === false || oldCategory !== category) {
@@ -23,6 +24,7 @@ export const UserResourceSlider = ({ category, genre }) => {
                     setResources(res.data);
                     setLoaded(true);
                     setOldCategory(category);
+                    setActive(false);
                 })
                 .catch(err => {
                     if (err.response.status === 401) {
@@ -41,6 +43,7 @@ export const UserResourceSlider = ({ category, genre }) => {
         }
         setClicked(e.target.id);
         setActive(true);
+        console.log(e);
     }
 
     return (

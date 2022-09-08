@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { getGenres } from "../services/db-access";
 import { UserResourceSlider } from "./user-resource-slider";
 import { useNavigate } from "react-router-dom";
-import "./../style/user-section.css";
 import { LoadingSpinner } from "../tools/loading-spinner";
+import "./../style/user-section.css";
 
 export function UserSection({ category }) {
     const [genres, setGenres] = useState(category);
@@ -39,10 +39,10 @@ export function UserSection({ category }) {
                     )}
                 </div>
                 :
-                < p className="Loading-white">
+                < div className="Loading-white">
                     <LoadingSpinner />
                     Loading
-                </p>
+                </div>
             }
         </>
     );

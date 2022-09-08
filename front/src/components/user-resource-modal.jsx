@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./../style/user-resource-modal.css"
 
 export const UserResourceModal = ({ isShowing, hide, resource }) =>
+
     isShowing
         ?
         ReactDOM.createPortal
