@@ -2,8 +2,10 @@ import "./../style/loading-spinner.css"
 
 export const LoadingSpinner = () => {
     return (
-        <div id="loading-bar-spinner" class="spinner">
-            <div class="spinner-icon">
+        <div className="spinner-container">
+            <div id="loading-bar-spinner" className="spinner">
+                <div className="spinner-icon">
+                </div>
             </div>
         </div>
     );

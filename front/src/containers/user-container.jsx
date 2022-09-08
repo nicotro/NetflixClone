@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { UserHeader } from "../components/user-header";
 import { UserSection } from "../components/user-section";
 import { getCategories, isLoggedAPI } from "../services/db-access";
+import { LoadingSpinner } from "../tools/loading-spinner";
 import "../style/user-header.css"
 
 export function UserContainer() {
@@ -59,9 +60,11 @@ export function UserContainer() {
           }
         </div>
         :
-        < div className="debug-white-text">
-          <p>Loading...</p>
-        </div>
+        < p className="Loading-white">
+          <LoadingSpinner />
+          Loading
+        </p>
+
       }
     </>
   )

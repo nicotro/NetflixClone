@@ -31,12 +31,6 @@ export function UserSection({ category }) {
 
     return (
         <>
-            {/* < div className="Loading-white-text">
-                <p>
-                    <LoadingSpinner />
-                    Temp Loading...
-                </p>
-            </div> */}
             {loaded
                 ?
                 < div className="usersection-genre">
@@ -45,12 +39,10 @@ export function UserSection({ category }) {
                     )}
                 </div>
                 :
-                < div className="Loading-white-text">
-                    <p>
-                        {/* <LoadingSpinner /> */}
-                        Loading...
-                    </p>
-                </div>
+                < p className="Loading-white">
+                    <LoadingSpinner />
+                    Loading
+                </p>
             }
         </>
     );
