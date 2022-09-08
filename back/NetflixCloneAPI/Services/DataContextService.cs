@@ -18,7 +18,8 @@ namespace NetflixCloneAPI.Services
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=tcp:utopios.database.windows.net,1433;Initial Catalog=NetflixCloneDb;Persist Security Info=False;User ID=m2i;Password=utopios1234.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            //optionsBuilder.UseSqlServer(@"Server=tcp:utopios.database.windows.net,1433;Initial Catalog=NetflixCloneDb;Persist Security Info=False;User ID=m2i;Password=utopios1234.;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\n8\Work\m2i\Module 2\NetflixClone\back\LocalDB_files\NetflixCloneDB.mdf"";Integrated Security=True;Connect Timeout=30");
         }
 
     }
