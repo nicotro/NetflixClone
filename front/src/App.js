@@ -12,7 +12,8 @@ function App() {
   return (
     <BrowserRouter history={hist}>
       <Routes>
-        <Route exact path="/" element={<HomeContainer />} />
+        <Route path="NetflixClone" element={<HomeContainer />} />
+        <Route path="/" element={<HomeContainer />} />
         <Route path="/login" element={<LoginContainer />} />
         <Route path="/register" element={<RegisterContainer />} />
         <Route path="/user" element={<UserContainer />} />
