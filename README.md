@@ -1,4 +1,4 @@
-## [NetflixClone project](https://nicotro.github.io/netflixclone/)
+## [NetflixClone project](https://nicotro.github.io/NetflixClone/)
 
 **m2i FullStack developper training final project, developped in ReactJS and C#.**  
 A 3 trainees team project to develop a Netflix like web-app (both front-end and back-end), mostly done on my own.  
