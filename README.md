@@ -27,7 +27,7 @@ Still missing:
 - some endpoints and controllers for the admin part (user ban, media creation and update).
 
 **Front built with React 18.2.0 - Back built with Microsoft .NET 6.0**  
-[Try it here](https://nicotro.github.io/netflixclone/)
+[Try it here](https://nicotro.github.io/NetflixClone/)
 
 ![Front end preview](/NetflixClone_cover.png)
 
